@@ -1,0 +1,451 @@
+/* ===========================
+   GameTech OS Boot Screen
+=========================== */
+
+body{
+    margin:0;
+    padding:0;
+    background:#050505;
+    overflow-x:hidden;
+    font-family:'Orbitron',sans-serif;
+}
+
+.boot-screen{
+
+    width:100vw;
+    height:100vh;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+    radial-gradient(circle,#0b220b,#050505);
+
+}
+
+.boot-screen h1{
+
+    color:#5CFF3D;
+
+    font-size:70px;
+
+    letter-spacing:8px;
+
+    text-shadow:
+
+    0 0 10px #32ff32,
+    0 0 25px #32ff32,
+    0 0 50px #32ff32;
+
+}
+
+.boot-screen p{
+
+    color:white;
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    letter-spacing:3px;
+
+}
+.loading-bar{
+
+    width:420px;
+
+    height:10px;
+
+    margin-top:40px;
+
+    background:#1b1b1b;
+
+    border-radius:30px;
+
+    overflow:hidden;
+
+    border:1px solid #33ff33;
+
+}
+
+.loading-progress{
+
+    width:0;
+
+    height:100%;
+
+    background:#57ff2a;
+
+    animation:boot 4s linear forwards;
+
+}
+@keyframes boot{
+
+0%{
+
+width:0;
+
+}
+
+100%{
+
+width:100%;
+
+}
+
+}
+/* ===========================
+   GameTech OS Dashboard
+=========================== */
+
+.dashboard{
+
+    min-height:100vh;
+
+    background:#050505;
+
+    color:white;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:50px;
+
+}
+
+.dashboard h1{
+
+    color:#57ff2a;
+
+    font-size:60px;
+
+    text-shadow:
+
+    0 0 15px #57ff2a,
+
+    0 0 40px #57ff2a;
+
+}
+
+.dashboard p{
+
+    color:#d9d9d9;
+
+    margin-bottom:40px;
+
+}
+
+.cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+
+    gap:30px;
+
+    width:100%;
+
+    max-width:1200px;
+
+}
+
+.card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(87,255,42,.3);
+
+    border-radius:20px;
+
+    padding:35px;
+
+    text-align:center;
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 0 25px #57ff2a;
+
+    border-color:#57ff2a;
+
+}
+
+.icon{
+
+    font-size:60px;
+
+    margin-bottom:20px;
+
+}
+/* ===========================
+   AI TERMINAL
+=========================== */
+
+.ai-terminal{
+
+    width:100%;
+    max-width:900px;
+
+    margin:40px auto;
+
+}
+
+.terminal-title{
+
+    color:#57ff2a;
+
+    font-size:18px;
+
+    letter-spacing:4px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+.terminal-box{
+
+    background:#0b0b0b;
+
+    border:1px solid #57ff2a;
+
+    border-radius:15px;
+
+    padding:30px;
+
+    box-shadow:0 0 25px rgba(87,255,42,.35);
+
+}
+
+.terminal-box p{
+
+    color:#57ff2a;
+
+    font-family:Consolas, monospace;
+
+    font-size:18px;
+
+    margin:12px 0;
+
+}
+/* ===========================
+   AI BUTTONS
+=========================== */
+
+.ai-buttons{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+    margin-top:35px;
+
+}
+
+.ai-buttons button{
+
+    background:rgba(87,255,42,.08);
+
+    color:white;
+
+    border:1px solid rgba(87,255,42,.45);
+
+    border-radius:15px;
+
+    padding:18px;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+.ai-buttons button:hover{
+
+    background:#57ff2a;
+
+    color:#000;
+
+    transform:translateY(-6px);
+
+    box-shadow:0 0 25px #57ff2a;
+
+}
+/* ===========================
+   GAME TECH OS DESKTOP
+=========================== */
+
+.os-desktop{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+    width:100%;
+
+    max-width:1200px;
+
+    margin-top:40px;
+
+}
+
+.os-app{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(87,255,42,.3);
+
+    border-radius:20px;
+
+    padding:30px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(15px);
+
+    transition:.35s;
+
+}
+
+.os-app:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+    box-shadow:0 0 30px #57ff2a;
+
+    border-color:#57ff2a;
+
+}
+
+.app-icon{
+
+    font-size:70px;
+
+    margin-bottom:15px;
+
+}
+
+.os-app h3{
+
+    color:#57ff2a;
+
+    margin:10px 0;
+
+    letter-spacing:2px;
+
+}
+
+.os-app p{
+
+    color:#d9d9d9;
+
+}
+/* ===========================
+   AI WORKSPACE
+=========================== */
+
+.workspace{
+
+    position:fixed;
+
+    top:5%;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:90%;
+
+    max-width:1000px;
+
+    height:80vh;
+
+    background:#111;
+
+    border:1px solid #57ff2a;
+
+    border-radius:20px;
+
+    display:none;
+
+    flex-direction:column;
+
+    box-shadow:0 0 35px rgba(87,255,42,.4);
+
+    z-index:999;
+
+}
+
+.workspace-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:20px;
+
+    border-bottom:1px solid rgba(87,255,42,.3);
+
+}
+
+.workspace-header h2{
+
+    color:#57ff2a;
+
+    margin:0;
+
+}
+
+.workspace-header button{
+
+    background:none;
+
+    border:none;
+
+    color:white;
+
+    font-size:24px;
+
+    cursor:pointer;
+
+}
+
+#workspace-content{
+
+    padding:30px;
+
+    color:white;
+
+    overflow-y:auto;
+
+    flex:1;
+
+}
