@@ -1,99 +1,144 @@
-// ===============================
-// GameTech OS Dashboard Engine
-// ===============================
-
 const workspace = document.getElementById("workspace");
 const workspaceTitle = document.getElementById("workspace-title");
 const workspaceContent = document.getElementById("workspace-content");
-const closeButton = document.getElementById("closeWorkspace");
+const closeBtn = document.getElementById("closeWorkspace");
 
-// ---------- OPEN WORKSPACE ----------
-function openWorkspace(title, content){
+const modules = {
 
-    workspace.style.display = "flex";
+    game: {
+        title: "Gaming Systems",
+        content: `
+            <h3>Gaming PCs</h3>
+            <p>Build your dream gaming PC.</p>
 
-    workspaceTitle.innerText = title;
+            <ul>
+                <li>Entry Level</li>
+                <li>Mid Range</li>
+                <li>High End</li>
+                <li>Extreme RTX Workstations</li>
+            </ul>
+        `
+    },
 
-    workspaceContent.innerHTML = content;
+    create: {
+        title: "AI & Workstations",
+        content: `
+            <h3>AI Systems</h3>
 
-}
+            <p>
+            RTX AI Workstations,
+            Rendering PCs,
+            Machine Learning,
+            Video Editing,
+            Unreal Engine,
+            Blender,
+            Stable Diffusion.
+            </p>
+        `
+    },
 
-// ---------- CLOSE WORKSPACE ----------
-closeButton.addEventListener("click", () => {
+    support: {
+        title: "Technical Support",
+        content: `
+            <h3>Support Center</h3>
+
+            <p>
+            Hardware Diagnosis,
+            BIOS Updates,
+            Windows Installation,
+            Driver Installation,
+            Performance Optimization.
+            </p>
+        `
+    },
+
+    business: {
+        title: "Business Solutions",
+        content: `
+            <h3>Enterprise</h3>
+
+            <p>
+            Office PCs,
+            CCTV,
+            Networking,
+            Servers,
+            Security Infrastructure.
+            </p>
+        `
+    },
+
+    connect: {
+        title: "Meet GameTech",
+        content: `
+            <h3>Connect With Us</h3>
+
+            <p>
+            Meet Shan Abbas & Ertaza Abbas.
+
+            Visit GameTech for professional consultation.
+            </p>
+        `
+    }
+
+};
+
+Object.keys(modules).forEach(id => {
+
+    document.getElementById(id).addEventListener("click", () => {
+
+        workspace.style.display = "block";
+
+        workspaceTitle.innerHTML = modules[id].title;
+
+        workspaceContent.innerHTML = modules[id].content;
+
+    });
+
+});
+
+closeBtn.onclick = () => {
 
     workspace.style.display = "none";
 
-});
+};
 
-// ---------- GAME ----------
-document.getElementById("game").addEventListener("click", () => {
+const startButton = document.getElementById("startButton");
+const startMenu = document.getElementById("startMenu");
 
-    openWorkspace(
+startButton.addEventListener("click", () => {
 
-        "🎮 GAME MODULE",
-
-        `
-        <h2>Welcome to GameTech AI</h2>
-
-        <p>Let's build your perfect gaming system.</p>
-
-        <button id="startGameAI">
-            Start AI Consultation
-        </button>
-        `
-
-    );
+    startMenu.style.display =
+        startMenu.style.display === "block"
+            ? "none"
+            : "block";
 
 });
 
-// ---------- CREATE ----------
-document.getElementById("create").addEventListener("click", () => {
+function updateClock(){
 
-    openWorkspace(
+    const now = new Date();
 
-        "🖥 CREATE MODULE",
+    const time = now.toLocaleTimeString([],{
+        hour:"2-digit",
+        minute:"2-digit"
+    });
 
-        "<h2>AI Workstations & Creative Systems</h2><p>Coming Soon...</p>"
+    document.getElementById("clock").textContent = time;
 
-    );
+}
 
-});
+setInterval(updateClock,1000);
 
-// ---------- SUPPORT ----------
-document.getElementById("support").addEventListener("click", () => {
+updateClock();
+console.log("Clock element:", document.getElementById("clock"));
+document.querySelectorAll("#startMenu button").forEach(btn=>{
 
-    openWorkspace(
+    btn.onclick=()=>{
 
-        "🛠 SUPPORT MODULE",
+        document.getElementById(btn.dataset.app).click();
 
-        "<h2>Technical Support</h2><p>Coming Soon...</p>"
+        startMenu.style.display="none";
 
-    );
-
-});
-
-// ---------- BUSINESS ----------
-document.getElementById("business").addEventListener("click", () => {
-
-    openWorkspace(
-
-        "🏢 BUSINESS MODULE",
-
-        "<h2>Business Infrastructure</h2><p>Coming Soon...</p>"
-
-    );
-
-});
-
-// ---------- CONNECT ----------
-document.getElementById("connect").addEventListener("click", () => {
-
-    openWorkspace(
-
-        "📹 CONNECT",
-
-        "<h2>Meet Shan & Ertaza</h2><p>Coming Soon...</p>"
-
-    );
+    }
 
 });

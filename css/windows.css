@@ -1,0 +1,98 @@
+/* ==========================================
+   GT-001 Window Manager
+========================================== */
+
+.window-manager{
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 900;
+}
+
+/* ==========================================
+   GameTech Window
+========================================== */
+
+.gt-window{
+
+    position: absolute;
+
+    top: 120px;
+    left: 180px;
+
+    width: 700px;
+    height: 450px;
+
+    background: rgba(18,18,18,.95);
+
+    border: 1px solid #57ff2a;
+
+    border-radius: 14px;
+
+    overflow: hidden;
+
+    box-shadow: 0 0 30px rgba(87,255,42,.35);
+
+    pointer-events: auto;
+}
+
+/* ==========================================
+   Title Bar
+========================================== */
+
+.gt-titlebar{
+
+    height: 48px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 0 15px;
+
+    background: #151515;
+
+    border-bottom: 1px solid rgba(87,255,42,.3);
+
+    color: #57ff2a;
+
+    font-weight: bold;
+}
+
+/* ==========================================
+   Close Button
+========================================== */
+
+.gt-close{
+
+    background: #ff3b30;
+
+    color: white;
+
+    border: none;
+
+    width: 32px;
+
+    height: 32px;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+/* ==========================================
+   Window Content
+========================================== */
+
+.gt-content{
+
+    padding: 20px;
+
+    color: white;
+
+    overflow: auto;
+
+    height: calc(100% - 48px);
+}

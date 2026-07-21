@@ -79,7 +79,7 @@ body{
 
     background:#57ff2a;
 
-    animation:boot 4s linear forwards;
+    transition:width 0.08s linear;
 
 }
 @keyframes boot{
@@ -100,12 +100,13 @@ width:100%;
 /* ===========================
    GameTech OS Dashboard
 =========================== */
-
 .dashboard{
 
     min-height:100vh;
 
-    background:#050505;
+    background:
+        radial-gradient(circle at top,#0d2b18 0%,#050505 45%),
+        linear-gradient(180deg,#0a0a0a,#040404);
 
     color:white;
 
@@ -113,11 +114,15 @@ width:100%;
 
     flex-direction:column;
 
-    align-items:center;
+    align-items:flex-start;
 
-    justify-content:center;
+    justify-content:flex-start;
 
-    padding:50px;
+    padding:40px;
+
+    position:relative;
+
+    overflow:hidden;
 
 }
 
@@ -301,69 +306,70 @@ width:100%;
 
     display:grid;
 
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    grid-template-columns:repeat(2,180px);
 
-    gap:30px;
-
-    width:100%;
-
-    max-width:1200px;
+    gap:25px;
 
     margin-top:40px;
 
 }
-
 .os-app{
 
-    background:rgba(255,255,255,.05);
+    width:140px;
 
-    border:1px solid rgba(87,255,42,.3);
+    padding:15px;
 
-    border-radius:20px;
+    background:transparent;
 
-    padding:30px;
+    border:none;
+
+    border-radius:12px;
 
     text-align:center;
 
     cursor:pointer;
 
-    backdrop-filter:blur(15px);
-
-    transition:.35s;
+    transition:all .25s ease;
 
 }
 
 .os-app:hover{
 
-    transform:translateY(-8px) scale(1.03);
+    background:rgba(255,255,255,.08);
 
-    box-shadow:0 0 30px #57ff2a;
+    transform:scale(1.05);
 
-    border-color:#57ff2a;
+    border-radius:12px;
 
 }
 
 .app-icon{
 
-    font-size:70px;
+    font-size:64px;
 
-    margin-bottom:15px;
+    margin-bottom:10px;
+
+    transition:.25s;
 
 }
 
 .os-app h3{
 
-    color:#57ff2a;
+    color:white;
 
-    margin:10px 0;
+    font-size:16px;
 
-    letter-spacing:2px;
+    margin:8px 0 2px;
 
 }
 
 .os-app p{
 
-    color:#d9d9d9;
+    color:#9fa7a8;
+
+    font-size:12px;
+
+    margin:0;
 
 }
 /* ===========================
@@ -447,5 +453,221 @@ width:100%;
     overflow-y:auto;
 
     flex:1;
+
+}
+.workspace{
+
+    position:fixed;
+
+    top:50%;
+
+    left:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:70%;
+
+    max-width:900px;
+
+    height:70%;
+
+    background:rgba(20,20,20,.85);
+
+    backdrop-filter:blur(15px);
+
+    border:1px solid rgba(0,255,255,.3);
+
+    border-radius:15px;
+
+    display:none;
+
+    overflow:hidden;
+
+    box-shadow:0 0 40px rgba(0,255,255,.25);
+
+    z-index:999;
+}
+
+.workspace-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px;
+
+    background:#101010;
+}
+
+#workspace-content{
+
+    padding:25px;
+
+    overflow:auto;
+
+    height:calc(100% - 60px);
+
+    color:white;
+}
+
+#closeWorkspace{
+
+    background:#ff3b30;
+
+    border:none;
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:8px;
+
+    cursor:pointer;
+}
+
+.os-app{
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.os-app:hover{
+
+    transform:translateY(-8px) scale(1.05);
+
+}
+.taskbar{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:60px;
+
+background:rgba(10,10,10,.75);
+
+backdrop-filter:blur(15px);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 20px;
+
+box-sizing:border-box;
+
+border-top:1px solid rgba(0,255,255,.25);
+
+z-index:1000;
+
+}
+
+.start-btn{
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+border:none;
+
+background:linear-gradient(45deg,#00f5ff,#8a2be2);
+
+color:white;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+.start-menu{
+
+position:fixed;
+
+bottom:70px;
+
+left:20px;
+
+width:260px;
+
+display:none;
+
+background:rgba(20,20,20,.92);
+
+backdrop-filter:blur(18px);
+
+padding:20px;
+
+border-radius:15px;
+
+box-shadow:0 0 25px rgba(0,255,255,.25);
+
+z-index:1001;
+
+}
+
+.start-menu button{
+
+width:100%;
+
+margin:8px 0;
+
+padding:12px;
+
+background:#222;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+text-align:left;
+
+}
+
+.start-menu button:hover{
+
+background:#333;
+
+}
+.taskbar-right{
+
+    display:flex;
+
+    align-items:center;
+
+    color:white;
+
+    font-size:16px;
+
+    font-family:'Poppins',sans-serif;
+
+    min-width:80px;
+
+    justify-content:center;
+
+}
+
+#clock{
+
+    color:#57ff2a;
+
+    font-weight:600;
+
+    letter-spacing:1px;
 
 }

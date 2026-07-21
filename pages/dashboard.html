@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameTech OS</title>
@@ -10,7 +11,9 @@
     <link rel="stylesheet" href="../css/mobile.css">
     <link rel="stylesheet" href="../css/animations.css">
     <link rel="stylesheet" href="../css/os-ui.css">
+    <link rel="stylesheet" href="../css/windows.css">
 </head>
+
 
 <body>
 
@@ -99,9 +102,43 @@
 
     </div>
 
+</div> <!-- GT-001 Window Manager -->
+<div id="windowManager" class="window-manager"></div>
+<div class="taskbar">
+
+    <button id="startButton" class="start-btn">
+        GT
+    </button>
+
+    <div class="taskbar-center">
+        <span>GameTech OS</span>
+    </div>
+
+    <div class="taskbar-right">
+
+        <span id="clock"></span>
+
+    </div>
+
 </div>
 
+<div id="startMenu" class="start-menu">
+
+    <h3>GameTech OS</h3>
+
+    <button data-app="game">🎮 Gaming</button>
+
+    <button data-app="create">🖥 AI Workstations</button>
+
+    <button data-app="support">🛠 Support</button>
+
+    <button data-app="business">🏢 Business</button>
+
+    <button data-app="connect">📹 Connect</button>
+
+</div>
 <script src="../js/dashboard.js"></script>
+<script src="../js/windows.js"></script>
 <script src="../js/ai.js"></script>
 </body>
 </html>
