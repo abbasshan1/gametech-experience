@@ -1,0 +1,324 @@
+/* ==========================================
+   GameTech Landing Page V3
+   Part 1 - Layout
+========================================== */
+
+:root{
+
+    --gt-green:#59FF39;
+    --gt-blue:#1877F2;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.10);
+
+}
+
+body{
+
+    overflow-x:hidden;
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:120px 50px 80px;
+
+    background:
+    radial-gradient(circle at top,#59FF3920,transparent 35%),
+    radial-gradient(circle at bottom,#00ff9920,transparent 35%),
+    #050505;
+
+}
+
+/* ===========================
+   3 COLUMN LAYOUT
+=========================== */
+
+.hero-layout{
+
+    width:100%;
+
+    max-width:1800px;
+
+    display:grid;
+
+    grid-template-columns:320px 1fr 320px;
+
+    gap:45px;
+
+    align-items:center;
+
+}
+
+/* ===========================
+   CENTER GLASS
+=========================== */
+
+.hero-layout .glass{
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:60px 45px;
+
+    border-radius:28px;
+
+    background:rgba(255,255,255,.06);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    box-shadow:
+
+    0 0 40px rgba(89,255,57,.15),
+
+    inset 0 0 15px rgba(255,255,255,.04);
+
+}
+
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+
+    width:180px;
+
+    display:block;
+
+    margin:0 auto 25px;
+
+}
+
+/* ===========================
+   TITLES
+=========================== */
+
+.hero-layout h1{
+
+    font-size:58px;
+
+    text-align:center;
+
+    font-family:'Orbitron',sans-serif;
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.hero-layout h3{
+
+    text-align:center;
+
+    color:#d7d7d7;
+
+    margin-bottom:35px;
+
+    font-weight:400;
+
+}
+
+.hero-layout p{
+
+    text-align:center;
+
+    line-height:1.8;
+
+    color:#d4d4d4;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.hero-layout .btn{
+
+    display:block;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:18px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.hero-layout .google{
+
+    background:var(--gt-green);
+
+    color:black;
+
+}
+
+.hero-layout .facebook{
+
+    background:var(--gt-blue);
+
+    color:white;
+
+}
+
+.hero-layout .btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ===========================
+   SOCIALS
+=========================== */
+
+.social{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.social a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.30s;
+
+}
+
+.social a:hover{
+
+    color:var(--gt-green);
+
+}
+
+/* ===========================
+   REVIEW PANELS
+=========================== */
+
+.reviews-panel{
+
+    height:720px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.google-panel{
+
+    box-shadow:0 0 30px rgba(89,255,57,.18);
+
+}
+
+.facebook-panel{
+
+    box-shadow:0 0 30px rgba(24,119,242,.20);
+
+}
+
+.panel-title{
+
+    padding:22px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-family:'Orbitron',sans-serif;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.reviews-track{
+
+    flex:1;
+
+    overflow:hidden;
+
+    padding:20px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1400px){
+
+.hero-layout{
+
+grid-template-columns:280px 1fr 280px;
+
+}
+
+}
+
+@media(max-width:1150px){
+
+.hero-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.reviews-panel{
+
+height:300px;
+
+}
+
+.hero{
+
+padding-top:140px;
+
+}
+
+}

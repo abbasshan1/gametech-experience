@@ -13,7 +13,7 @@ body{
     min-height:100vh;
 }
 
-.hero{
+.hero{          
     display:flex;
     justify-content:center;
     align-items:center;
@@ -387,5 +387,113 @@ box-shadow:0 0 30px #59FF39;
     100% {
         text-shadow:0 0 10px cyan;
     }
+
+}/* =======================================================
+   HERO LAYOUT V2
+======================================================= */
+
+.hero{
+
+    min-height:100vh;
+    padding:120px 40px 80px;
+
+}
+
+.hero-layout{
+
+    width:100%;
+    max-width:1700px;
+
+    display:grid;
+
+    grid-template-columns:300px 1fr 300px;
+
+    gap:40px;
+
+    align-items:center;
+
+}
+
+/* ===========================
+   REVIEW PANELS
+=========================== */
+
+.reviews-panel{
+
+    height:700px;
+
+    background:red;
+
+    border:5px solid yellow;
+
+}
+
+.google-panel{
+
+    box-shadow:0 0 35px rgba(89,255,57,.18);
+
+}
+
+.facebook-panel{
+
+    box-shadow:0 0 35px rgba(24,119,242,.20);
+
+}
+
+.panel-title{
+
+    padding:22px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-family:'Orbitron',sans-serif;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/* ===========================
+   CENTER CARD
+=========================== */
+
+.glass{
+
+    margin:auto;
+
+}
+
+/* ===========================
+   REVIEW AREA
+=========================== */
+
+.reviews-track{
+
+    flex:1;
+
+    padding:20px;
+
+    overflow:hidden;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1200px){
+
+.hero-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.reviews-panel{
+
+height:320px;
+
+}
 
 }
