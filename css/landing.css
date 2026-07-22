@@ -444,3 +444,31 @@ padding-top:140px;
     z-index:10;
 
 }
+
+.review-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+.review-header h4{
+
+    margin:0;
+
+}
+
+.stars{
+
+    color:#FFD700;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}

@@ -55,9 +55,17 @@ function createGoogleReview(review){
 
     return `
     <div class="review-card">
-        <h4>${review.name}</h4>
-        <div class="stars">${review.stars}</div>
+
+        <div class="review-header">
+
+            <h4>${review.name}</h4>
+
+            <span class="stars">${review.stars}</span>
+
+        </div>
+
         <p>${review.text}</p>
+
     </div>
     `;
 
