@@ -74,12 +74,18 @@ function createFacebookReview(review){
 
 }
 
-document.querySelector(".google-panel .reviews-track").innerHTML =
-googleReviews.concat(googleReviews)
-.map(createGoogleReview)
-.join("");
+const googleTrack = document.querySelector(".google-panel .reviews-track");
 
-document.querySelector(".facebook-panel .reviews-track").innerHTML =
-facebookReviews.concat(facebookReviews)
-.map(createFacebookReview)
-.join("");
+googleTrack.innerHTML = `
+<div class="reviews-inner">
+    ${googleReviews.concat(googleReviews).map(createGoogleReview).join("")}
+</div>
+`;
+
+const facebookTrack = document.querySelector(".facebook-panel .reviews-track");
+
+facebookTrack.innerHTML = `
+<div class="reviews-inner">
+    ${facebookReviews.concat(facebookReviews).map(createFacebookReview).join("")}
+</div>
+`;

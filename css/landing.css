@@ -322,3 +322,75 @@ padding-top:140px;
 }
 
 }
+/* ==========================================
+   LIVE SCROLLING REVIEWS
+========================================== */
+
+.reviews-track{
+
+    height:100%;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.reviews-inner{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    animation:scrollReviews 30s linear infinite;
+}
+
+.review-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    color:white;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.review-card h4{
+
+    margin-bottom:8px;
+
+    color:#59FF39;
+
+}
+
+.stars{
+
+    color:#FFD700;
+
+    margin-bottom:10px;
+
+    letter-spacing:2px;
+
+}
+
+@keyframes scrollReviews{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    100%{
+        transform:translateY(-50%);
+    }
+
+}
