@@ -472,3 +472,55 @@ padding-top:140px;
     letter-spacing:2px;
 
 }
+/* ==========================================
+   REVIEW USER
+========================================== */
+
+.review-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.avatar{
+
+    min-width:42px;
+    width:42px;
+
+    min-height:42px;
+    height:42px;
+
+    display:flex !important;
+
+    align-items:center;
+    justify-content:center;
+
+    flex:0 0 42px;
+
+    border-radius:50%;
+
+    background:#59FF39;
+
+    color:#000;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    box-shadow:0 0 15px rgba(89,255,57,.35);
+
+}
+
+.review-user h4{
+
+    margin:0;
+
+    font-size:16px;
+
+    color:white;
+
+}
