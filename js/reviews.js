@@ -1,64 +1,106 @@
 console.log("reviews.js loaded");
 
 const googleReviews = [
+
 {
     name:"Ali Khan",
     avatar:"A",
     stars:"★★★★★",
+    subtitle:"Local Guide • 35 reviews",
+    time:"2 weeks ago",
+    badge:"✓ Verified Purchase",
     text:"Excellent service. Built my gaming PC perfectly."
 },
+
 {
     name:"Hamza",
     avatar:"H",
     stars:"★★★★★",
+    subtitle:"18 reviews",
+    time:"1 month ago",
+    badge:"✓ Verified Purchase",
     text:"Best gaming PC shop in Peshawar."
 },
+
 {
     name:"Ahmed",
     avatar:"A",
     stars:"★★★★★",
+    subtitle:"12 reviews",
+    time:"3 weeks ago",
+    badge:"✓ Verified Purchase",
     text:"Professional staff and genuine hardware."
 },
+
 {
     name:"Bilal",
     avatar:"B",
     stars:"★★★★★",
+    subtitle:"Local Guide • 22 reviews",
+    time:"5 days ago",
+    badge:"✓ Verified Purchase",
     text:"Amazing workstation build."
 },
+
 {
     name:"Usman",
     avatar:"U",
     stars:"★★★★★",
+    subtitle:"9 reviews",
+    time:"Yesterday",
+    badge:"✓ Verified Purchase",
     text:"Highly recommended for gamers."
 }
+
 ];
 
 const facebookReviews = [
+
 {
     name:"Zeeshan",
     avatar:"Z",
-    text:"Recommended. Very professional."
+    title:"Recommends GameTech",
+    time:"1 week ago",
+    badge:"👍 Recommended",
+    text:"Very professional team. Highly recommended."
 },
+
 {
     name:"Sajid",
     avatar:"S",
+    title:"Recommends GameTech",
+    time:"2 weeks ago",
+    badge:"👍 Recommended",
     text:"Excellent customer support."
 },
+
 {
     name:"Adeel",
     avatar:"A",
+    title:"Recommends GameTech",
+    time:"3 weeks ago",
+    badge:"👍 Recommended",
     text:"Built my RTX gaming PC flawlessly."
 },
+
 {
     name:"Jawad",
     avatar:"J",
+    title:"Recommends GameTech",
+    time:"1 month ago",
+    badge:"👍 Recommended",
     text:"Fast delivery and genuine products."
 },
+
 {
     name:"Shahbaz",
     avatar:"S",
+    title:"Recommends GameTech",
+    time:"2 months ago",
+    badge:"👍 Recommended",
     text:"Best computer store in KPK."
 }
+
 ];
 
 function createGoogleReview(review){
@@ -74,7 +116,13 @@ function createGoogleReview(review){
                     ${review.avatar}
                 </div>
 
-                <h4>${review.name}</h4>
+                <div>
+
+                    <h4>${review.name}</h4>
+
+                    <small>${review.subtitle}</small>
+
+                </div>
 
             </div>
 
@@ -82,7 +130,11 @@ function createGoogleReview(review){
 
         </div>
 
+        <small class="review-time">${review.time}</small>
+
         <p>${review.text}</p>
+
+        <div class="review-badge">${review.badge}</div>
 
     </div>
     `;
@@ -93,8 +145,29 @@ function createFacebookReview(review){
 
     return `
     <div class="review-card">
-        <h4>${review.name}</h4>
-        <p>👍 ${review.text}</p>
+
+        <div class="review-user">
+
+            <div class="avatar">
+                ${review.avatar}
+            </div>
+
+            <div>
+
+                <h4>${review.name}</h4>
+
+                <small>${review.title}</small>
+
+            </div>
+
+        </div>
+
+        <small class="review-time">${review.time}</small>
+
+        <p>${review.text}</p>
+
+        <div class="review-badge">${review.badge}</div>
+
     </div>
     `;
 

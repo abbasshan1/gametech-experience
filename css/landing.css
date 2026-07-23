@@ -524,3 +524,39 @@ padding-top:140px;
     color:white;
 
 }
+
+.review-user small{
+
+    display:block;
+
+    color:#9e9e9e;
+
+    font-size:12px;
+
+    margin-top:2px;
+
+}
+
+.review-time{
+
+    display:block;
+
+    color:#7f7f7f;
+
+    font-size:12px;
+
+    margin:10px 0;
+
+}
+
+.review-badge{
+
+    margin-top:12px;
+
+    color:#59FF39;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
