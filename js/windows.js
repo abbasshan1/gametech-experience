@@ -48,9 +48,12 @@ function createWindow(title, content) {
 
 createWindow(
     "Welcome to GameTech OS",
-    `
-    <h2>GameTech Window Manager</h2>
-    <p>This is the first window created by JavaScript.</p>
-    <p>Next we will make windows draggable.</p>
-    `
+    `<h2>GameTech Window Manager</h2>
+     <p>This is the first ever Gaming OS.</p>`,
+    {
+        position: "middle",
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)"
+    }
 );
