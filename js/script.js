@@ -1,4 +1,6 @@
+
 console.log("Welcome to GameTech Experience");
+
 // ==========================================
 // Premium Glass Card Tilt
 // ==========================================
@@ -18,14 +20,18 @@ if(glassCard){
         const rotateX = ((y / rect.height) - 0.5) * -12;
 
         glassCard.style.transform =
-            `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+            `perspective(1000px)
+             translateY(-6px)
+             scale(1.015)
+             rotateX(${rotateX}deg)
+             rotateY(${rotateY}deg)`;
 
     });
 
     glassCard.addEventListener("mouseleave",()=>{
 
         glassCard.style.transform =
-            "perspective(1000px) rotateX(0deg) rotateY(0deg)";
+            "perspective(1000px) translateY(0) scale(1) rotateX(0deg) rotateY(0deg)";
 
     });
 

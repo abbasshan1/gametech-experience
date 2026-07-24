@@ -94,6 +94,15 @@ z-index:1;
         transform-style: preserve-3d;
 transition: transform .15s ease;
 will-change: transform;
+cursor:default;
+
+}
+
+.hero-layout .glass > *{
+
+    position:relative;
+
+    z-index:1;
 
 }
 
