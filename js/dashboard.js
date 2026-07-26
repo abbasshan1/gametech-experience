@@ -6,19 +6,66 @@ const closeBtn = document.getElementById("closeWorkspace");
 const modules = {
 
     game: {
-        title: "Gaming Systems",
-        content: `
-            <h3>Gaming PCs</h3>
-            <p>Build your dream gaming PC.</p>
+    title: "GameTech AI",
+    content: `
 
-            <ul>
-                <li>Entry Level</li>
-                <li>Mid Range</li>
-                <li>High End</li>
-                <li>Extreme RTX Workstations</li>
-            </ul>
-        `
-    },
+        <div class="gt-ai">
+
+            <h2>🤖 GameTech AI</h2>
+
+            <p class="ai-intro">
+
+                Welcome to GameTech.
+
+                I'm your personal AI PC Consultant.
+
+                I'll ask a few questions and recommend
+                the perfect PC based on your requirements.
+
+            </p>
+
+            <button id="startConsultation">
+
+                Start Consultation
+
+            </button>
+
+            <div id="aiChat" style="display:none; margin-top:30px;">
+
+                <div class="ai-message">
+
+                    <strong>GameTech AI</strong>
+
+                    <p>
+                        What will you mainly use your computer for?
+                    </p>
+
+                </div>
+
+                <div class="ai-options">
+
+                    <button class="ai-option">🎮 Gaming</button>
+
+                    <button class="ai-option">🎬 Video Editing</button>
+
+                    <button class="ai-option">🤖 AI / Machine Learning</button>
+
+                    <button class="ai-option">🏢 Office</button>
+
+                    <button class="ai-option">💻 Software Development</button>
+
+                    <button class="ai-option">🎨 3D / Rendering</button>
+
+                    <button class="ai-option">🔀 Mixed Use</button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    `
+},
 
     create: {
         title: "AI & Workstations",
@@ -90,7 +137,15 @@ Object.keys(modules).forEach(id => {
 
         workspaceTitle.innerHTML = modules[id].title;
 
-        workspaceContent.innerHTML = modules[id].content;
+if (id === "game") {
+
+    workspaceContent.innerHTML = getGameTechAI();
+
+} else {
+
+    workspaceContent.innerHTML = modules[id].content;
+
+}
 
     });
 
