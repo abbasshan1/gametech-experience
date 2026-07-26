@@ -1,132 +1,201 @@
 
-const consultation = {
-    purpose: "",
-    budget: "",
-    games: [],
-    software: [],
-    resolution: "",
-    monitor: "",
-    peripherals: "",
-    notes: ""
-};
+/* ==========================================
+   GameTech AI
+   GT-006 Consultation Engine v2
+========================================== */
 
-function getGameTechAI() {
+const consultation = {};
 
-    return `
+let currentQuestion = 0;
 
-    <div class="gt-ai">
+const consultationFlow = [
 
-        <h2>🤖 GameTech AI</h2>
+{
+    key: "purpose",
+    question: "What will you mainly use your computer for?",
+    options: [
+        "🎮 Gaming",
+        "🤖 AI / Machine Learning",
+        "🎬 Video Editing",
+        "🎨 3D Rendering",
+        "💻 Software Development",
+        "🏢 Office",
+        "🔀 Mixed Use"
+    ]
+},
 
-        <p class="gt-ai-tagline">
-            Powered by GameTech Expertise
-        </p>
+{
+    key: "budget",
+    question: "What is your approximate budget?",
+    options: [
+        "Under PKR 100,000",
+        "PKR 100,000 - 150,000",
+        "PKR 150,000 - 250,000",
+        "PKR 250,000 - 400,000",
+        "PKR 400,000+"
+    ]
+}
 
-        <hr>
+];
 
-        <div id="gtChat">
+function getGameTechAI(){
 
-            <div class="ai-message">
+return `
 
-                <strong>GameTech AI</strong>
+<div class="gt-ai">
 
-                <p>Welcome to GameTech.</p>
+<h2>🤖 GameTech AI</h2>
 
-                <p>I'm your personal AI PC Consultant.</p>
+<p class="gt-ai-tagline">
 
-                <p>
-                    I'll help you design the perfect complete PC build.
-                </p>
+Powered by GameTech Expertise
 
-            </div>
+</p>
 
-        </div>
+<hr>
 
-        <div class="ai-actions">
+<div id="gtChat">
 
-            <button id="startConsultation"
-                    onclick="startConsultation()">
+<div class="ai-message">
 
-                Start Consultation
+<strong>GameTech AI</strong>
 
-            </button>
+<p>Welcome to GameTech.</p>
 
-        </div>
+<p>I'm your personal AI PC Consultant.</p>
 
-    </div>
+<p>I'll recommend the perfect complete PC build.</p>
 
-    `;
+</div>
+
+</div>
+
+<div class="ai-actions">
+
+<button id="startConsultation"
+onclick="startConsultation()">
+
+Start Consultation
+
+</button>
+
+</div>
+
+</div>
+
+`;
 
 }
 
-function startConsultation() {
+function startConsultation(){
 
-    const chat = document.getElementById("gtChat");
+document.getElementById("startConsultation").remove();
 
-    chat.innerHTML += `
+currentQuestion = 0;
 
-        <div class="user-message">
-
-            <strong>You</strong>
-
-            <p>Start Consultation</p>
-
-        </div>
-
-        <div class="ai-message">
-
-            <strong>GameTech AI</strong>
-
-            <p>Great! Let's begin.</p>
-
-            <p>What will you mainly use your computer for?</p>
-
-            <div class="ai-options">
-
-                <button onclick="selectPurpose('Gaming')">
-                    🎮 Gaming
-                </button>
-
-                <button onclick="selectPurpose('AI / Machine Learning')">
-                    🤖 AI / Machine Learning
-                </button>
-
-                <button onclick="selectPurpose('Video Editing')">
-                    🎬 Video Editing
-                </button>
-
-                <button onclick="selectPurpose('3D Rendering')">
-                    🎨 3D Rendering
-                </button>
-
-                <button onclick="selectPurpose('Software Development')">
-                    💻 Software Development
-                </button>
-
-                <button onclick="selectPurpose('Office')">
-                    🏢 Office
-                </button>
-
-                <button onclick="selectPurpose('Mixed Use')">
-                    🔀 Mixed Use
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-    document.getElementById("startConsultation").remove();
+showQuestion();
 
 }
 
-function selectPurpose(purpose) {
+function showQuestion(){
 
-    consultation.purpose = purpose;
+const chat = document.getElementById("gtChat");
 
-    console.log("Consultation Data:", consultation);
+const q = consultationFlow[currentQuestion];
 
-    alert("Selected: " + purpose);
+let buttons = "";
+
+q.options.forEach(option=>{
+
+buttons += `
+<button onclick="selectAnswer('${option}')">
+${option}
+</button>
+`;
+
+});
+
+chat.innerHTML += `
+
+<div class="ai-message">
+
+<strong>GameTech AI</strong>
+
+<p>${q.question}</p>
+
+<div class="ai-options">
+
+${buttons}
+
+</div>
+
+</div>
+
+`;
+
+chat.scrollTop = chat.scrollHeight;
+
+}
+
+function selectAnswer(answer){
+
+const q = consultationFlow[currentQuestion];
+
+consultation[q.key] = answer;
+
+const chat = document.getElementById("gtChat");
+
+chat.innerHTML += `
+
+<div class="user-message">
+
+<strong>You</strong>
+
+<p>${answer}</p>
+
+</div>
+
+`;
+
+currentQuestion++;
+
+if(currentQuestion < consultationFlow.length){
+
+showQuestion();
+
+}else{
+
+finishConsultation();
+
+}
+
+}
+
+function finishConsultation(){
+
+const chat = document.getElementById("gtChat");
+
+chat.innerHTML += `
+
+<div class="ai-message">
+
+<strong>GameTech AI</strong>
+
+<p>
+
+Excellent.
+
+I've collected the initial consultation.
+
+The next step will analyse your answers
+and generate your GameTech recommendation.
+
+</p>
+
+</div>
+
+`;
+
+console.log(consultation);
 
 }
