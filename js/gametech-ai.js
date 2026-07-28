@@ -66,7 +66,6 @@ function startConsultation() {
 function showQuestion() {
 
     const chat = document.getElementById("gtChat");
-
     const q = questions[currentQuestion];
 
     if (!q) {
@@ -74,19 +73,56 @@ function showQuestion() {
         return;
     }
 
-    let buttons = "";
+    let html = "";
 
-    q.options.forEach(option => {
+    if (q.type === "text") {
 
-        buttons += `
-            <button class="ai-option" onclick="selectAnswer('${option}')">
-                ${option}
-            </button>
+        html = `
+
+        <div class="ai-message">
+
+            <strong>GameTech AI</strong>
+
+            <p>${q.question}</p>
+
+            <div class="ai-input">
+
+                <input
+    class="userInput"
+    type="text"
+    placeholder="Type here..."
+>
+                <button onclick="submitTextAnswer()">
+                    Next →
+                </button>
+
+            </div>
+
+        </div>
+
         `;
 
-    });
+    } else {
 
-    chat.innerHTML += `
+        let buttons = "";
+
+        q.options.forEach(option => {
+
+            buttons += `
+
+            <button
+                class="ai-option"
+                onclick="selectAnswer('${option}')">
+
+                ${option}
+
+            </button>
+
+            `;
+
+        });
+
+        html = `
 
         <div class="ai-message">
 
@@ -102,12 +138,15 @@ function showQuestion() {
 
         </div>
 
-    `;
+        `;
+
+    }
+
+    chat.innerHTML += html;
 
     chat.scrollTop = chat.scrollHeight;
 
 }
-
 function selectAnswer(answer) {
 
     const q = questions[currentQuestion];
@@ -133,8 +172,29 @@ function selectAnswer(answer) {
     showQuestion();
 
 }
+function submitTextAnswer() {
+
+    const inputs = document.querySelectorAll(".userInput");
+
+    const input = inputs[inputs.length - 1];
+
+    if (!input) return;
+
+    const value = input.value.trim();
+
+    if (value === "") {
+        alert("Please enter a value.");
+        input.focus();
+        return;
+    }
+
+    selectAnswer(value);
+
+}
 
 function finishConsultation() {
+
+    const recommendation = generateRecommendation(consultation);
 
     const chat = document.getElementById("gtChat");
 
@@ -142,26 +202,63 @@ function finishConsultation() {
 
         <div class="ai-message">
 
-            <strong>GameTech AI</strong>
+            <strong>🤖 GameTech AI</strong>
+
+            <h3>Your Recommended Build</h3>
+
+            <hr>
+
+            <p><strong>CPU:</strong> ${recommendation.cpu.name}</p>
+
+            <p><strong>GPU:</strong> ${recommendation.gpu.name}</p>
+
+            <p>
+                <strong>Estimated Core Hardware Price:</strong>
+                PKR ${recommendation.estimatedPrice.toLocaleString()}
+            </p>
+
+            <hr>
+
+            <p><strong>Why this recommendation?</strong></p>
+
+            <ul>
+
+                ${recommendation.reasoning.map(reason =>
+                    `<li>${reason}</li>`
+                ).join("")}
+
+            </ul>
 
             <p>
 
-                Excellent.
-
-                I've collected your consultation.
-
-                Your GameTech recommendation will now be generated.
+                This is the first stage of your GameTech recommendation.
 
             </p>
+
+            <p>
+
+                The complete GameTech build will also include:
+
+            </p>
+
+            <ul>
+
+                <li>Compatible Motherboard</li>
+                <li>DDR4 / DDR5 RAM</li>
+                <li>NVMe SSD</li>
+                <li>80+ Certified Power Supply</li>
+                <li>Gaming Case</li>
+
+            </ul>
 
         </div>
 
     `;
 
-    console.log("Consultation Data:", consultation);
+    console.log("Consultation:", consultation);
+    console.log("Recommendation:", recommendation);
 
 }
-
 document.addEventListener("click", function (e) {
 
     if (e.target && e.target.id === "startConsultation") {
