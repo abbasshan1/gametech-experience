@@ -54,6 +54,23 @@ const questions = [
     },
 
     {
+        id: "games",
+        question: "Which games or software are important for you?",
+        type: "text"
+    },
+
+    {
+        id: "resolution",
+        question: "What gaming or performance experience are you targeting?",
+        options: [
+            "1080p Gaming",
+            "1440p / 2K Gaming",
+            "4K Gaming",
+            "Professional Workstation Performance"
+        ]
+    },
+
+    {
         id: "budget",
         question: "What's your approximate budget?",
         options: [
@@ -74,6 +91,41 @@ const questions = [
             "Best Value (New + Used)",
             "Used Components"
         ]
+    },
+
+    {
+        id: "monitor",
+        question: "Do you already have a monitor?",
+        options: [
+            "Yes, I have a monitor",
+            "Need a monitor recommendation",
+            "Need complete setup"
+        ]
+    },
+
+    {
+        id: "peripherals",
+        question: "Do you need gaming accessories?",
+        options: [
+            "Keyboard + Mouse + Headset",
+            "Full Gaming Setup",
+            "PC Only"
+        ]
+    },
+
+    {
+        id: "upgrade",
+        question: "Do you want future upgrade options?",
+        options: [
+            "Yes, upgrade path is important",
+            "No, current performance is enough"
+        ]
+    },
+
+    {
+        id: "notes",
+        question: "Anything else GameTech should know?",
+        type: "text"
     }
 
 ];

@@ -671,3 +671,436 @@ background:#333;
     letter-spacing:1px;
 
 }
+
+/* ==========================================
+   GameTech AI Chat Interface
+   GT-006 Premium Chat UI
+========================================== */
+
+
+.gt-ai{
+
+    display:flex;
+    flex-direction:column;
+
+    height:100%;
+
+    font-family:'Poppins',sans-serif;
+
+}
+
+
+.gt-ai-tagline{
+
+    color:#9fa7a8;
+
+    font-size:14px;
+
+}
+
+
+
+#gtChat{
+
+    flex:1;
+
+    overflow-y:auto;
+
+    padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+/* AI Message */
+
+.ai-message{
+
+    align-self:flex-start;
+
+    max-width:75%;
+
+    background:rgba(87,255,42,.08);
+
+    border:1px solid rgba(87,255,42,.35);
+
+    padding:15px 18px;
+
+    border-radius:15px;
+
+    color:white;
+
+    box-shadow:0 0 15px rgba(87,255,42,.15);
+
+}
+
+
+
+/* Customer Message */
+
+.user-message{
+
+    align-self:flex-end;
+
+    max-width:75%;
+
+    background:rgba(0,245,255,.12);
+
+    border:1px solid rgba(0,245,255,.35);
+
+    padding:15px 18px;
+
+    border-radius:15px;
+
+    color:white;
+
+}
+
+
+
+/* Options */
+
+.ai-options{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+
+
+.ai-option{
+
+    background:#151515;
+
+    border:1px solid #57ff2a;
+
+    color:white;
+
+    padding:12px 18px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+
+
+.ai-option:hover{
+
+    background:#57ff2a;
+
+    color:black;
+
+    box-shadow:0 0 20px #57ff2a;
+
+}
+
+
+
+/* Text Input */
+
+.ai-input{
+
+    display:flex;
+
+    gap:10px;
+
+    margin-top:15px;
+
+}
+
+
+.ai-input input{
+
+    flex:1;
+
+    background:#050505;
+
+    border:1px solid #57ff2a;
+
+    color:white;
+
+    padding:12px;
+
+    border-radius:10px;
+
+    outline:none;
+
+}
+
+
+
+.ai-input button{
+
+    background:#57ff2a;
+
+    border:none;
+
+    padding:12px 20px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:bold;
+
+}
+
+
+
+/* Scrollbar */
+
+#gtChat::-webkit-scrollbar{
+
+    width:6px;
+
+}
+
+
+#gtChat::-webkit-scrollbar-thumb{
+
+    background:#57ff2a;
+
+    border-radius:10px;
+
+}
+
+/* ==========================================
+   GameTech AI Premium Effects
+========================================== */
+
+
+/* AI Message Animation */
+
+.ai-message,
+.user-message{
+
+    animation: chatAppear .35s ease;
+
+}
+
+
+@keyframes chatAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(15px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
+
+
+
+/* AI Online Indicator */
+
+.gt-ai-status{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    color:#57ff2a;
+
+    font-size:13px;
+
+    margin-bottom:15px;
+
+}
+
+
+.gt-ai-status span{
+
+    width:8px;
+
+    height:8px;
+
+    background:#57ff2a;
+
+    border-radius:50%;
+
+    box-shadow:0 0 10px #57ff2a;
+
+    animation:pulseAI 1.5s infinite;
+
+}
+
+
+@keyframes pulseAI{
+
+    0%{
+
+        opacity:.4;
+
+    }
+
+    50%{
+
+        opacity:1;
+
+    }
+
+    100%{
+
+        opacity:.4;
+
+    }
+
+}
+
+
+
+/* Typing Animation */
+
+.ai-typing{
+
+    display:flex;
+
+    gap:5px;
+
+    padding:12px 18px;
+
+    background:rgba(87,255,42,.08);
+
+    border:1px solid rgba(87,255,42,.3);
+
+    border-radius:15px;
+
+    width:max-content;
+
+}
+
+
+
+.ai-typing span{
+
+    width:7px;
+
+    height:7px;
+
+    background:#57ff2a;
+
+    border-radius:50%;
+
+    animation:typing 1.2s infinite;
+
+}
+
+
+.ai-typing span:nth-child(2){
+
+    animation-delay:.2s;
+
+}
+
+
+.ai-typing span:nth-child(3){
+
+    animation-delay:.4s;
+
+}
+
+
+
+@keyframes typing{
+
+    0%,100%{
+
+        transform:translateY(0);
+
+        opacity:.3;
+
+    }
+
+    50%{
+
+        transform:translateY(-5px);
+
+        opacity:1;
+
+    }
+
+}
+
+
+
+/* Better AI Header */
+
+.gt-ai h2{
+
+    margin-bottom:5px;
+
+    color:#57ff2a;
+
+    text-shadow:
+
+    0 0 10px #57ff2a;
+
+}
+
+
+
+/* Premium Chat Background */
+
+#gtChat{
+
+    background:
+
+    radial-gradient(circle at top,
+
+    rgba(87,255,42,.08),
+
+    transparent 40%);
+
+    
+
+    border-radius:15px;
+
+}
+
+
+
+/* Better Buttons */
+
+.ai-option{
+
+    position:relative;
+
+    overflow:hidden;
+
+}
+
+
+
+.ai-option:active{
+
+    transform:scale(.96);
+
+}
