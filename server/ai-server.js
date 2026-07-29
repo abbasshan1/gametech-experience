@@ -1,66 +1,91 @@
-
 /* ==========================================
-   GameTech AI Backend Bridge
-   GT-AI-001
+   GameTech AI Server
+   GT-AI-003
 ========================================== */
 
+require("dotenv").config();
 
-console.log("GameTech AI Server Starting...");
+const express = require("express");
+const cors = require("cors");
 
+const config = require("./config");
+const askGameTechAI = require("./ai");
 
-const http = require("http");
+const app = express();
 
+app.use(cors());
 
-const server = http.createServer((req, res)=>{
+app.use(express.json());
 
+app.get("/", (req, res) => {
 
-    // Allow frontend communication
+    res.json({
 
-    res.setHeader(
-        "Access-Control-Allow-Origin",
-        "*"
-    );
+        success: true,
 
+        status: "GameTech AI Backend Online",
 
-    res.setHeader(
-        "Content-Type",
-        "application/json"
-    );
+        company: config.COMPANY,
 
+        application: config.APP_NAME
 
-    if(req.url === "/"){
+    });
 
-        res.end(JSON.stringify({
+});
+app.post("/chat", async (req, res) => {
 
-            status:
-            "GameTech AI Backend Online"
+    try {
 
-        }));
+        const { messages } = req.body;
 
-        return;
+        if (!messages || !Array.isArray(messages)) {
+
+            return res.status(400).json({
+
+                success: false,
+
+                error: "messages array is required"
+
+            });
+
+        }
+
+        const reply = await askGameTechAI(messages);
+
+        res.json({
+
+            success: true,
+
+            reply
+
+        });
 
     }
 
+    catch (error) {
 
-    res.end(JSON.stringify({
+        console.error(error);
 
-        message:
-        "GameTech AI Ready"
+        res.status(500).json({
 
-    }));
+            success: false,
 
+            error: "Internal Server Error"
 
+        });
+
+    }
 
 });
 
+app.listen(config.PORT, () => {
 
-
-server.listen(3000, ()=>{
-
-
-    console.log(
-        "GameTech AI Server running on port 3000"
-    );
-
+    console.log("====================================");
+    console.log(" GameTech AI Server");
+    console.log("====================================");
+    console.log(`Running on http://localhost:${config.PORT}`);
+    console.log("AI Provider : OpenRouter");
+    console.log(`Model       : ${config.MODEL}`);
+    console.log("====================================");
 
 });
