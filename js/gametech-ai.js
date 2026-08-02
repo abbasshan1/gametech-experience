@@ -192,69 +192,27 @@ function submitTextAnswer() {
 
 }
 
-function finishConsultation() {
+async function finishConsultation() {
 
-    const recommendation = generateRecommendation(consultation);
+    const recommendation = await generateRecommendation(consultation);
 
     const chat = document.getElementById("gtChat");
 
-    chat.innerHTML += `
+   chat.innerHTML += `
 
-        <div class="ai-message">
+<div class="ai-message">
 
-            <strong>🤖 GameTech AI</strong>
+    <strong>🤖 GameTech AI</strong>
 
-            <h3>Your Recommended Build</h3>
+    <h3>GameTech AI Recommendation</h3>
 
-            <hr>
+    <hr>
 
-            <p><strong>CPU:</strong> ${recommendation.cpu.name}</p>
+    <p>${recommendation.reply.replace(/\n/g, "<br>")}</p>
 
-            <p><strong>GPU:</strong> ${recommendation.gpu.name}</p>
+</div>
 
-            <p>
-                <strong>Estimated Core Hardware Price:</strong>
-                PKR ${recommendation.estimatedPrice.toLocaleString()}
-            </p>
-
-            <hr>
-
-            <p><strong>Why this recommendation?</strong></p>
-
-            <ul>
-
-                ${recommendation.reasoning.map(reason =>
-                    `<li>${reason}</li>`
-                ).join("")}
-
-            </ul>
-
-            <p>
-
-                This is the first stage of your GameTech recommendation.
-
-            </p>
-
-            <p>
-
-                The complete GameTech build will also include:
-
-            </p>
-
-            <ul>
-
-                <li>Compatible Motherboard</li>
-                <li>DDR4 / DDR5 RAM</li>
-                <li>NVMe SSD</li>
-                <li>80+ Certified Power Supply</li>
-                <li>Gaming Case</li>
-
-            </ul>
-
-        </div>
-
-    `;
-
+`;
     console.log("Consultation:", consultation);
     console.log("Recommendation:", recommendation);
 

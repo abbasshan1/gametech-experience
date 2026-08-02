@@ -3,7 +3,7 @@
    GameTech AI
    GT-006 Consultation Engine
 ========================================== */
-
+const API_URL = "https://earrings-awareness-constant-cartridges.trycloudflare.com";
 const consultation = {
     purpose: "",
     budget: "",
@@ -205,106 +205,116 @@ consultation[key]=value;
 
 
 
+async function generateBuild(){
 
-function generateBuild(){
+    let chat = document.getElementById("gtChat");
+
+    chat.innerHTML += `
+
+    <hr>
+
+    <p>
+    <b>GameTech AI:</b><br>
+    Thinking about the best build for you... ⏳
+    </p>
+
+    `;
 
 
-let chat=document.getElementById("gtChat");
+    const messages = [
 
-let build="";
+        {
+            role: "user",
+            content: `
+Customer PC Requirement:
+
+Purpose:
+${consultation.purpose}
+
+Budget:
+${consultation.budget}
+
+Games:
+${consultation.software}
+
+Resolution:
+${consultation.resolution}
+
+Setup:
+${consultation.peripherals}
+
+Please recommend a complete PC build.
+`
+        }
+
+    ];
 
 
-if(consultation.budget.includes("600")){
+    try{
 
 
-build = `
-🔥 Extreme Gaming Build
+        const response = await fetch(`${API_URL}/chat`, {
 
-CPU: Ryzen 7 / Ryzen 9 Class Processor
+            method: "POST",
 
-GPU: RTX 5070 Ti / RTX 5080 Class
+            headers: {
 
-RAM: 32GB DDR5
+                "Content-Type": "application/json"
 
-Storage: 1TB NVMe SSD
+            },
 
-Target:
-4K Gaming + Content Creation
-`;
+            body: JSON.stringify({
+
+                messages
+
+            })
+
+        });
+
+
+        const data = await response.json();
+
+
+        chat.innerHTML += `
+
+        <hr>
+
+        <h3>🤖 GameTech AI Recommendation</h3>
+
+        <p>
+        ${data.reply.replace(/\n/g,"<br>")}
+        </p>
+
+        <button onclick="sendWhatsApp()">
+        📲 Send Request To GameTech
+        </button>
+
+        `;
+
+
+        console.log(data.reply);
+
+
+    }
+
+
+    catch(error){
+
+        console.error(error);
+
+
+        chat.innerHTML += `
+
+        <p>
+        ❌ Unable to connect with GameTech AI.
+        </p>
+
+        `;
+
+    }
+
 
 }
-
-
-else if(consultation.budget.includes("300")){
-
-
-build = `
-⚡ High Performance Build
-
-CPU: Ryzen 7 7800X3D / Ryzen 9700X
-
-GPU: RTX 5070 / RTX 5060 Ti
-
-RAM: 32GB DDR5
-
-Storage: 1TB NVMe
-
-Target:
-1440p Ultra Gaming
-`;
-
-}
-
-
-else{
-
-
-build = `
-🎮 Smart Gaming Build
-
-CPU: Ryzen 5 / Core i5 Class
-
-GPU: RTX 5060 Class
-
-RAM: 16GB DDR5
-
-Storage: 512GB NVMe
-
-Target:
-1080p Gaming
-`;
-
-}
-
-
-
-chat.innerHTML += `
-
-<hr>
-
-<h3>GameTech AI Recommendation</h3>
-
-<p>
-${build}
-</p>
-
-
-<button onclick="sendWhatsApp()">
-📲 Send Request To GameTech
-</button>
-
-`;
-
-
-
-console.log(consultation);
-
-
-}
-
-
-
-
 function sendWhatsApp(){
 
 

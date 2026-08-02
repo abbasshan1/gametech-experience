@@ -2,7 +2,7 @@
    GT-007
    GameTech AI Processing Bridge
 ========================================== */
-
+const API_URL = "https://less-operations-futures-use.trycloudflare.com";
 
 async function generateRecommendation(customer) {
 
@@ -23,12 +23,61 @@ async function generateRecommendation(customer) {
     */
 
 
-    return {
+    const response = await fetch(`${API_URL}/chat`, {
 
-        message:
-        "Your consultation has been received. GameTech AI is analysing the best solution for your requirements."
+    method: "POST",
 
-    };
+    headers: {
+
+        "Content-Type": "application/json"
+
+    },
+
+    body: JSON.stringify({
+
+        messages: [
+
+            {
+
+                role: "user",
+
+                content: `
+
+Customer Consultation
+
+Purpose:
+${customer.purpose}
+
+Budget:
+${customer.budget}
+
+Games / Software:
+${customer.software}
+
+Resolution:
+${customer.resolution}
+
+Setup:
+${customer.peripherals}
+
+Additional Notes:
+${customer.notes}
+
+Recommend a complete PC build for this customer.
+
+`
+
+            }
+
+        ]
+
+    })
+
+});
+
+const data = await response.json();
+
+return data;
 
 
 }
