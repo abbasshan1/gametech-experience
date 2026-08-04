@@ -36,3 +36,34 @@ if(glassCard){
     });
 
 }
+/* ==========================================
+   GameTech Services Menu
+========================================== */
+
+const servicesBtn = document.getElementById("servicesBtn");
+const servicesMenu = document.getElementById("servicesMenu");
+
+if (servicesBtn && servicesMenu) {
+
+    servicesBtn.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        servicesMenu.classList.toggle("show");
+
+    });
+
+    document.addEventListener("click", function(e){
+
+        if(
+            !servicesMenu.contains(e.target) &&
+            !servicesBtn.contains(e.target)
+        ){
+
+            servicesMenu.classList.remove("show");
+
+        }
+
+    });
+
+}

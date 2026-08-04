@@ -13,72 +13,67 @@
 </head>
 
 <body>
+<section class="support-page">
 
-<section class="experience">
+    <div class="support-box">
 
-<h2>Technical Support</h2>
+        <h1>GameTech Technical Support</h1>
 
-<p class="subtitle">
-Select the type of issue you're experiencing.
-</p>
+        <p>
+            Need help with your PC?
+            Fill in the details below and our technical specialist,
+            <strong>Ertaza Abbas</strong>, will contact you on WhatsApp.
+        </p>
 
-<div class="cards">
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name">
 
-<div class="card">
+        <input
+            type="tel"
+            id="customerWhatsapp"
+            placeholder="WhatsApp Number">
 
-    <div class="icon">🪟</div>
+        <input
+            type="text"
+            id="device"
+            placeholder="PC / Laptop / Component">
 
-    <h3>Windows</h3>
+        <select id="issue">
 
-    <p>
-        Boot issues, updates, drivers and operating system problems.
-    </p>
+            <option value="">Select Issue</option>
 
-    <button onclick="window.location.href='windows.html'">
-        Open →
-    </button>
+            <option>Windows Problem</option>
 
-</div>
-<div class="card">
+            <option>Gaming Performance</option>
 
-<div class="icon">🎮</div>
+            <option>Hardware Fault</option>
 
-<h3>Gaming</h3>
+            <option>Internet / Networking</option>
 
-<p>FPS, lag, crashes, DirectX and game optimization.</p>
+            <option>Upgrade Advice</option>
 
-<button>Open</button>
+            <option>Other</option>
 
-</div>
+        </select>
 
-<div class="card">
+        <textarea
+            id="description"
+            rows="6"
+            placeholder="Describe your issue..."></textarea>
 
-<div class="icon">🖥</div>
+        <button onclick="sendSupportRequest()">
 
-<h3>Hardware</h3>
+            Contact Ertaza on WhatsApp
 
-<p>CPU, GPU, RAM, SSD, motherboard and PSU diagnostics.</p>
+        </button>
 
-<button>Open</button>
-
-</div>
-
-<div class="card">
-
-<div class="icon">🌐</div>
-
-<h3>Networking</h3>
-
-<p>Internet, WiFi, LAN, routers and online gaming issues.</p>
-
-<button>Open</button>
-
-</div>
-
-</div>
+    </div>
 
 </section>
 
+<script src="../js/support.js"></script>
 </body>
 
 </html>

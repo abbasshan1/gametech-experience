@@ -7,7 +7,6 @@ const googleReviews = [
     avatar:"A",
     stars:"★★★★★",
     subtitle:"Local Guide • 35 reviews",
-    time:"2 weeks ago",
     badge:"✓ Verified Purchase",
     text:"Excellent service. Built my gaming PC perfectly."
 },
@@ -17,7 +16,6 @@ const googleReviews = [
     avatar:"H",
     stars:"★★★★★",
     subtitle:"18 reviews",
-    time:"1 month ago",
     badge:"✓ Verified Purchase",
     text:"Best gaming PC shop in Peshawar."
 },
@@ -27,7 +25,6 @@ const googleReviews = [
     avatar:"A",
     stars:"★★★★★",
     subtitle:"12 reviews",
-    time:"3 weeks ago",
     badge:"✓ Verified Purchase",
     text:"Professional staff and genuine hardware."
 },
@@ -37,7 +34,6 @@ const googleReviews = [
     avatar:"B",
     stars:"★★★★★",
     subtitle:"Local Guide • 22 reviews",
-    time:"5 days ago",
     badge:"✓ Verified Purchase",
     text:"Amazing workstation build."
 },
@@ -47,7 +43,6 @@ const googleReviews = [
     avatar:"U",
     stars:"★★★★★",
     subtitle:"9 reviews",
-    time:"Yesterday",
     badge:"✓ Verified Purchase",
     text:"Highly recommended for gamers."
 }
@@ -60,7 +55,6 @@ const facebookReviews = [
     name:"Zeeshan",
     avatar:"Z",
     title:"Recommends GameTech",
-    time:"1 week ago",
     badge:"👍 Recommended",
     text:"Very professional team. Highly recommended."
 },
@@ -69,7 +63,6 @@ const facebookReviews = [
     name:"Sajid",
     avatar:"S",
     title:"Recommends GameTech",
-    time:"2 weeks ago",
     badge:"👍 Recommended",
     text:"Excellent customer support."
 },
@@ -78,7 +71,6 @@ const facebookReviews = [
     name:"Adeel",
     avatar:"A",
     title:"Recommends GameTech",
-    time:"3 weeks ago",
     badge:"👍 Recommended",
     text:"Built my RTX gaming PC flawlessly."
 },
@@ -87,7 +79,6 @@ const facebookReviews = [
     name:"Jawad",
     avatar:"J",
     title:"Recommends GameTech",
-    time:"1 month ago",
     badge:"👍 Recommended",
     text:"Fast delivery and genuine products."
 },
@@ -96,7 +87,6 @@ const facebookReviews = [
     name:"Shahbaz",
     avatar:"S",
     title:"Recommends GameTech",
-    time:"2 months ago",
     badge:"👍 Recommended",
     text:"Best computer store in KPK."
 }
@@ -130,8 +120,6 @@ function createGoogleReview(review){
 
         </div>
 
-        <small class="review-time">${review.time}</small>
-
         <p>${review.text}</p>
 
         <div class="review-badge">${review.badge}</div>
@@ -162,8 +150,6 @@ function createFacebookReview(review){
 
         </div>
 
-        <small class="review-time">${review.time}</small>
-
         <p>${review.text}</p>
 
         <div class="review-badge">${review.badge}</div>
@@ -175,16 +161,20 @@ function createFacebookReview(review){
 
 const googleTrack = document.querySelector(".google-panel .reviews-track");
 
-googleTrack.innerHTML = `
-<div class="reviews-inner">
-    ${googleReviews.concat(googleReviews).map(createGoogleReview).join("")}
-</div>
-`;
+if (googleTrack) {
+    googleTrack.innerHTML = `
+    <div class="reviews-inner">
+        ${googleReviews.concat(googleReviews).map(createGoogleReview).join("")}
+    </div>
+    `;
+}
 
 const facebookTrack = document.querySelector(".facebook-panel .reviews-track");
 
-facebookTrack.innerHTML = `
-<div class="reviews-inner">
-    ${facebookReviews.concat(facebookReviews).map(createFacebookReview).join("")}
-</div>
-`;
+if (facebookTrack) {
+    facebookTrack.innerHTML = `
+    <div class="reviews-inner">
+        ${facebookReviews.concat(facebookReviews).map(createFacebookReview).join("")}
+    </div>
+    `;
+}

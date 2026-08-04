@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameTech | Gaming PCs, Workstations & IT Solutions</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/os-ui.css">
+    <link rel="stylesheet" href="css/landing.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+<!-- ========================================= -->
+<!-- NAVIGATION -->
+<!-- ========================================= -->
+
+<nav class="navbar">
+
+    <div class="nav-logo">
+
+        <img src="assets/logo.png" alt="GameTech Logo">
+
+        <span>GameTech</span>
+
+    </div>
+
+    <div class="nav-links">
+
+        <a href="#">Home</a>
+
+        <a href="#" id="servicesBtn">Services</a>
+
+        <a href="#">Reviews</a>
+
+        <a href="#">Contact</a>
+
+    </div>
+
+</nav>
