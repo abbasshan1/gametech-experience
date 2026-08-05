@@ -24,19 +24,110 @@ body{
         radial-gradient(circle at bottom,#00ff9920,transparent 40%),
         #050505;
 }
+/* ==========================================
+   GAMETECH PREMIUM GLASS PANEL
+========================================== */
 
-.glass{
-    width:100%;
-    max-width:650px;
-    text-align:center;
-    padding:50px 35px;
-    border-radius:25px;
-    background:rgba(255,255,255,.06);
-    backdrop-filter:blur(15px);
-    border:1px solid rgba(255,255,255,.12);
-    box-shadow:0 0 35px rgba(89,255,57,.15);
+.glass {
+
+    position: relative;
+
+    padding: 40px;
+
+    border-radius: 25px;
+
+    background:
+    rgba(15,15,15,0.65);
+
+    backdrop-filter: blur(18px);
+
+    -webkit-backdrop-filter: blur(18px);
+
+    overflow: hidden;
+
+    box-shadow:
+    0 0 40px rgba(0,255,255,.15);
+
 }
 
+
+
+/* RGB Animated Border */
+
+.glass::before {
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    padding:2px;
+
+    border-radius:25px;
+
+    background:
+    linear-gradient(
+        90deg,
+        #ff0000,
+        #00ffff,
+        #00ff00,
+        #ff00ff,
+        #ff0000
+    );
+
+    background-size:300% 300%;
+
+    animation:
+    rgbBorder 8s linear infinite;
+
+    z-index:-1;
+
+}
+
+
+
+.glass::after {
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border-radius:23px;
+
+    background:#111;
+
+    z-index:-1;
+
+}
+
+
+
+@keyframes rgbBorder {
+
+    0% {
+
+        background-position:0% 50%;
+
+    }
+
+
+    50% {
+
+        background-position:100% 50%;
+
+    }
+
+
+    100% {
+
+        background-position:0% 50%;
+
+    }
+
+}
 .logo{
     width:180px;
     margin-bottom:20px;
