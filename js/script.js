@@ -67,3 +67,43 @@ if (servicesBtn && servicesMenu) {
     });
 
 }
+
+/* =========================================
+   NAVBAR DROPDOWNS
+========================================= */
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+    dropdowns.forEach(dropdown => {
+
+        const button = dropdown.querySelector(".drop-btn");
+
+        button.addEventListener("click", (e) => {
+
+            e.preventDefault();
+            e.stopPropagation();
+
+            // Close all other dropdowns
+            dropdowns.forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove("active");
+                }
+            });
+
+            // Toggle current dropdown
+            dropdown.classList.toggle("active");
+
+        });
+
+    });
+
+    // Close when clicking outside
+    document.addEventListener("click", () => {
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove("active");
+        });
+    });
+
+});
