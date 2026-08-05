@@ -1,53 +1,455 @@
 
-<!DOCTYPE html>
-<html lang="en">
+/* ==========================================
+   GameTech Mega Services Menu
+========================================== */
 
-<head>
+.services-menu{
 
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    position:fixed;
 
-    <title>GameTech | Gaming PCs, Workstations & IT Solutions</title>
+    top:85px;
 
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/navbar.css">
-    <link rel="stylesheet" href="css/mobile.css">
-    <link rel="stylesheet" href="css/animations.css">
-    <link rel="stylesheet" href="css/os-ui.css">
-    <link rel="stylesheet" href="css/landing.css">
+    left:50%;
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    transform:translateX(-50%) scale(.95);
 
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    width:min(1100px,92%);
 
-</head>
+    background:rgba(18,18,18,.88);
 
-<body>
-<!-- ========================================= -->
-<!-- NAVIGATION -->
-<!-- ========================================= -->
+    backdrop-filter:blur(18px);
 
-<nav class="navbar">
+    border:1px solid rgba(0,255,170,.25);
 
-    <div class="nav-logo">
+    border-radius:24px;
 
-        <img src="assets/logo.png" alt="GameTech Logo">
+    padding:35px;
 
-        <span>GameTech</span>
+    opacity:0;
 
-    </div>
+    visibility:hidden;
 
-    <div class="nav-links">
+    transition:.35s;
 
-        <a href="#">Home</a>
+    z-index:99999;
 
-        <a href="#" id="servicesBtn">Services</a>
+    box-shadow:
+    0 0 30px rgba(0,255,170,.18),
+    0 0 80px rgba(0,255,170,.08);
 
-        <a href="#">Reviews</a>
+}
 
-        <a href="#">Contact</a>
+.services-menu.show{
 
-    </div>
+    opacity:1;
 
-</nav>
+    visibility:visible;
+
+    transform:translateX(-50%) scale(1);
+
+}
+
+.services-container h2{
+
+    font-family:'Orbitron',sans-serif;
+
+    text-align:center;
+
+    color:#00ffb7;
+
+    margin-bottom:30px;
+
+    letter-spacing:2px;
+
+}
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:20px;
+
+}
+
+.service-card{
+
+    background:rgba(255,255,255,.04);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    padding:22px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.service-card:hover{
+
+    transform:translateY(-8px);
+
+    border-color:#00ffb7;
+
+    box-shadow:0 0 20px rgba(0,255,170,.25);
+
+}
+
+.service-card img{
+
+    width:58px;
+
+    height:58px;
+
+    object-fit:contain;
+
+    margin-bottom:15px;
+
+}
+
+.service-card h3{
+
+    color:#ffffff;
+
+    margin-bottom:8px;
+
+    font-size:18px;
+
+}
+
+.service-card p{
+
+    color:#bbbbbb;
+
+    font-size:14px;
+
+    line-height:1.5;
+
+}
+
+/*=========================
+SERVICES MENU
+=========================*/
+
+.services-menu{
+
+position:fixed;
+
+top:82px;
+
+left:50%;
+
+transform:translateX(-50%) translateY(-20px);
+
+width:1100px;
+
+max-width:95%;
+
+background:rgba(10,10,10,.95);
+
+backdrop-filter:blur(25px);
+
+border:1px solid rgba(0,255,120,.25);
+
+border-radius:22px;
+
+padding:35px;
+
+opacity:0;
+
+visibility:hidden;
+
+transition:.35s;
+
+z-index:9999;
+
+box-shadow:0 0 60px rgba(0,255,120,.18);
+
+}
+
+.services-menu.show{
+
+opacity:1;
+
+visibility:visible;
+
+transform:translateX(-50%) translateY(0);
+
+}
+
+.services-container h2{
+
+font-family:Orbitron;
+
+color:#00ff88;
+
+text-align:center;
+
+margin-bottom:30px;
+
+font-size:30px;
+
+}
+
+.services-grid{
+
+display:grid;
+
+grid-template-columns:repeat(5,1fr);
+
+gap:20px;
+
+}
+
+.service-card{
+
+background:#181818;
+
+border-radius:18px;
+
+padding:25px;
+
+text-align:center;
+
+transition:.35s;
+
+cursor:pointer;
+
+border:1px solid #222;
+
+}
+
+.service-card:hover{
+
+transform:translateY(-8px);
+
+border-color:#00ff88;
+
+box-shadow:0 0 25px rgba(0,255,120,.25);
+
+}
+
+.service-icon{
+
+font-size:46px;
+
+margin-bottom:15px;
+
+}
+
+.service-card h3{
+
+color:white;
+
+font-size:18px;
+
+margin-bottom:8px;
+
+}
+
+.service-card p{
+
+color:#aaa;
+
+font-size:14px;
+
+line-height:22px;
+
+}
+/* ===========================
+   SERVICE EMOJI ICONS
+=========================== */
+
+.service-icon{
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    width:70px;
+    height:70px;
+
+    margin:0 auto 18px;
+
+    font-size:42px;
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(0,255,100,.35);
+
+    border-radius:18px;
+
+    box-shadow:0 0 15px rgba(0,255,100,.25);
+
+    transition:.35s;
+
+}
+
+.service-card:hover .service-icon{
+
+    transform:scale(1.15) rotate(8deg);
+
+    box-shadow:0 0 30px #00ff66;
+
+    background:rgba(0,255,100,.12);
+
+}
+
+/* ==========================================
+   SERVICE ICONS
+========================================== */
+
+.service-icon{
+
+    width:65px;
+    height:65px;
+
+    margin:0 auto 18px;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:18px;
+
+    background:linear-gradient(135deg,#00ff88,#00d4ff);
+
+    color:#111;
+
+    font-size:22px;
+    font-weight:700;
+    font-family:'Orbitron',sans-serif;
+
+    box-shadow:0 0 20px rgba(0,255,136,.35);
+
+    transition:.35s;
+
+}
+
+.service-card:hover .service-icon{
+
+    transform:scale(1.12) rotate(8deg);
+
+    box-shadow:0 0 35px #00ff88;
+
+}
+
+/*=============================
+   SERVICES DROPDOWN
+==============================*/
+
+.nav-dropdown{
+
+    position:relative;
+
+}
+
+.drop-btn{
+
+    background:none;
+
+    border:none;
+
+    color:#fff;
+
+    font:inherit;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.drop-btn:hover{
+
+    color:#5CFF5C;
+
+}
+
+.services-dropdown{
+
+    position:absolute;
+
+    top:45px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+    width:340px;
+
+    background:rgba(20,20,20,.94);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:18px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.45);
+
+    padding:18px;
+
+    display:none;
+
+    z-index:99999;
+
+}
+
+.nav-dropdown:hover .services-dropdown{
+
+    display:block;
+
+}
+
+.services-dropdown h3{
+
+    color:#5CFF5C;
+
+    margin-bottom:12px;
+
+    text-align:center;
+
+    font-size:18px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    padding-bottom:10px;
+
+}
+
+.services-dropdown a{
+
+    display:block;
+
+    color:#eee;
+
+    text-decoration:none;
+
+    padding:10px 12px;
+
+    border-radius:10px;
+
+    transition:.25s;
+
+    font-size:15px;
+
+}
+
+.services-dropdown a:hover{
+
+    background:rgba(92,255,92,.10);
+
+    color:#5CFF5C;
+
+    transform:translateX(6px);
+
+}
