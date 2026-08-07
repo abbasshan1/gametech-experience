@@ -107,3 +107,31 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const dropdowns = document.querySelectorAll(".nav-dropdown");
+
+    dropdowns.forEach(dropdown => {
+        const button = dropdown.querySelector(".drop-btn");
+
+        button.addEventListener("click", (e) => {
+            e.preventDefault();
+            e.stopPropagation();
+
+            dropdowns.forEach(item => {
+                if (item !== dropdown) {
+                    item.classList.remove("active");
+                }
+            });
+
+            dropdown.classList.toggle("active");
+        });
+    });
+
+    document.addEventListener("click", () => {
+        dropdowns.forEach(dropdown => {
+            dropdown.classList.remove("active");
+        });
+    });
+
+});

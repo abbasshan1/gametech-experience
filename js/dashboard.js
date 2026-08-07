@@ -1,3 +1,7 @@
+alert("THIS IS THE REAL DASHBOARD.JS");
+
+
+
 const workspace = document.getElementById("workspace");
 const workspaceTitle = document.getElementById("workspace-title");
 const workspaceContent = document.getElementById("workspace-content");
@@ -81,7 +85,36 @@ Object.keys(modules).forEach(id => {
 
 if (id === "game") {
 
-    workspaceContent.innerHTML = getGameTechAI();
+    console.log("GAME clicked");
+
+    try {
+
+        alert("GAME clicked");
+
+alert(typeof getGameTechAI);
+
+alert("GAME clicked");
+
+alert(typeof getGameTechAI);
+
+alert("GAME clicked");
+
+alert(typeof getGameTechAI);
+
+workspaceContent.innerHTML = getGameTechAI();
+
+        console.log("AI Loaded Successfully");
+
+    } catch (err) {
+
+        console.error("GameTech AI Error:", err);
+
+        workspaceContent.innerHTML = `
+            <h2>GameTech AI Error</h2>
+            <pre>${err}</pre>
+        `;
+
+    }
 
 } else {
 

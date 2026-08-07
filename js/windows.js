@@ -1,6 +1,14 @@
-const windowManager = document.getElementById("windowManager");
+
+/* ==========================================
+   GameTech Window Manager
+========================================== */
 
 function createWindow(title, content) {
+
+    const windowManager = document.getElementById("windowManager");
+
+    // Don't run if the page doesn't have a window manager
+    if (!windowManager) return;
 
     const windowBox = document.createElement("div");
     windowBox.className = "gt-window";
@@ -45,15 +53,3 @@ function createWindow(title, content) {
         windowBox.remove();
     });
 }
-
-createWindow(
-    "Welcome to GameTech OS",
-    `<h2>GameTech Window Manager</h2>
-     <p>This is the first ever Gaming OS.</p>`,
-    {
-        position: "middle",
-        top: "50%",
-        left: "50%",
-        transform: "translate(-50%, -50%)"
-    }
-);

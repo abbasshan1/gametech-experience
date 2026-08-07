@@ -1,47 +1,64 @@
 /* ==========================================
    GameTech AI
-   GT-006 Consultation Engine
+   GT-AI-Frontend v3
+   Conversational AI Engine
 ========================================== */
 
-let currentQuestion = 0;
+const GAME_TECH_API = "https://earrings-awareness-constant-cartridges.trycloudflare.com";
 
-function getGameTechAI() {
+let gameTechConversation = [];
+
+
+function getGameTechAI(){
+
+    gameTechConversation = [
+
+        {
+            role: "assistant",
+            content:
+            "Welcome to GameTech. 👋\n\nI'm your AI Technology Consultant.\n\nI can help you with Gaming PCs, Workstations, AI Systems, upgrades, FPS expectations, troubleshooting, and complete PC recommendations.\n\nHow can I help you today?"
+        }
+
+    ];
+
 
     return `
 
     <div class="gt-ai">
 
-        <h2>🤖 GameTech AI</h2>
+        <h2>
+        🤖 GameTech AI
+        </h2>
 
         <p class="gt-ai-tagline">
-            Powered by GameTech Expertise
+        Powered by GameTech Expertise
         </p>
 
         <hr>
 
-        <div id="gtChat">
 
-            <div class="ai-message">
+        <div id="gtChat" class="gt-chat">
 
-                <strong>GameTech AI</strong>
-
-                <p>Welcome to GameTech.</p>
-
-                <p>I'm your personal AI PC Consultant.</p>
-
-                <p>I'll recommend the perfect complete PC build.</p>
-
-            </div>
+        ${renderGameTechMessages()}
 
         </div>
 
-        <div class="ai-actions">
 
-            <button id="startConsultation">
-                Start Consultation
+        <div class="gt-input-area">
+
+            <input 
+            id="gtMessageInput"
+            type="text"
+            placeholder="Ask GameTech AI..."
+            onkeydown="if(event.key==='Enter') sendGameTechMessage()"
+            >
+
+            <button onclick="sendGameTechMessage()">
+            Send
             </button>
 
         </div>
+
 
     </div>
 
@@ -49,180 +66,198 @@ function getGameTechAI() {
 
 }
 
-function startConsultation() {
 
-    currentQuestion = 0;
 
-    const btn = document.getElementById("startConsultation");
+function renderGameTechMessages(){
 
-    if (btn) {
-        btn.remove();
-    }
+    return gameTechConversation.map(msg=>{
 
-    showQuestion();
 
-}
+        if(msg.role==="assistant"){
 
-function showQuestion() {
+            return `
 
-    const chat = document.getElementById("gtChat");
-    const q = questions[currentQuestion];
+            <div class="ai-message">
 
-    if (!q) {
-        finishConsultation();
-        return;
-    }
+            <strong>🤖 GameTech AI</strong>
 
-    let html = "";
-
-    if (q.type === "text") {
-
-        html = `
-
-        <div class="ai-message">
-
-            <strong>GameTech AI</strong>
-
-            <p>${q.question}</p>
-
-            <div class="ai-input">
-
-                <input
-    class="userInput"
-    type="text"
-    placeholder="Type here..."
->
-                <button onclick="submitTextAnswer()">
-                    Next →
-                </button>
+            <p>
+            ${msg.content.replace(/\n/g,"<br>")}
+            </p>
 
             </div>
-
-        </div>
-
-        `;
-
-    } else {
-
-        let buttons = "";
-
-        q.options.forEach(option => {
-
-            buttons += `
-
-            <button
-                class="ai-option"
-                onclick="selectAnswer('${option}')">
-
-                ${option}
-
-            </button>
 
             `;
 
-        });
+        }
 
-        html = `
 
-        <div class="ai-message">
+        return `
 
-            <strong>GameTech AI</strong>
+        <div class="user-message">
 
-            <p>${q.question}</p>
+        <strong>You</strong>
 
-            <div class="ai-options">
-
-                ${buttons}
-
-            </div>
+        <p>
+        ${msg.content}
+        </p>
 
         </div>
 
         `;
 
-    }
 
-    chat.innerHTML += html;
-
-    chat.scrollTop = chat.scrollHeight;
+    }).join("");
 
 }
-function selectAnswer(answer) {
 
-    const q = questions[currentQuestion];
 
-    consultation[q.id] = answer;
+
+async function sendGameTechMessage(){
+
+
+    const input = document.getElementById("gtMessageInput");
+
+
+    if(!input) return;
+
+
+    const message = input.value.trim();
+
+
+    if(message==="") return;
+
+
+
+    gameTechConversation.push({
+
+        role:"user",
+
+        content:message
+
+    });
+
+
+    input.value="";
+
+
+    updateGameTechChat();
+
 
     const chat = document.getElementById("gtChat");
+
 
     chat.innerHTML += `
 
-        <div class="user-message">
-
-            <strong>You</strong>
-
-            <p>${answer}</p>
-
-        </div>
-
-    `;
-
-    currentQuestion++;
-
-    showQuestion();
-
-}
-function submitTextAnswer() {
-
-    const inputs = document.querySelectorAll(".userInput");
-
-    const input = inputs[inputs.length - 1];
-
-    if (!input) return;
-
-    const value = input.value.trim();
-
-    if (value === "") {
-        alert("Please enter a value.");
-        input.focus();
-        return;
-    }
-
-    selectAnswer(value);
-
-}
-
-async function finishConsultation() {
-
-    const recommendation = await generateRecommendation(consultation);
-
-    const chat = document.getElementById("gtChat");
-
-   chat.innerHTML += `
-
-<div class="ai-message">
+    <div class="ai-message">
 
     <strong>🤖 GameTech AI</strong>
 
-    <h3>GameTech AI Recommendation</h3>
+    <p>
+    Thinking...
+    </p>
 
-    <hr>
+    </div>
 
-    <p>${recommendation.reply.replace(/\n/g, "<br>")}</p>
+    `;
 
-</div>
 
-`;
-    console.log("Consultation:", consultation);
-    console.log("Recommendation:", recommendation);
 
-}
-document.addEventListener("click", function (e) {
+    chat.scrollTop = chat.scrollHeight;
 
-    if (e.target && e.target.id === "startConsultation") {
 
-        startConsultation();
+
+    try{
+
+
+        const response = await fetch(
+            `${GAME_TECH_API}/chat`,
+            {
+
+            method:"POST",
+
+            headers:{
+
+                "Content-Type":"application/json"
+
+            },
+
+            body:JSON.stringify({
+
+                messages: gameTechConversation
+
+            })
+
+        });
+
+
+
+        const data = await response.json();
+
+
+
+        gameTechConversation.push({
+
+            role:"assistant",
+
+            content:data.reply
+
+        });
+
+
+
+        updateGameTechChat();
+
+
 
     }
 
-});
+
+    catch(error){
+
+
+        console.error(
+            "GameTech AI Error:",
+            error
+        );
+
+
+        gameTechConversation.push({
+
+            role:"assistant",
+
+            content:
+            "Sorry, I am unable to connect right now. Please contact GameTech directly."
+
+        });
+
+
+        updateGameTechChat();
+
+
+    }
+
+
+
+}
+
+
+
+function updateGameTechChat(){
+
+
+    const chat = document.getElementById("gtChat");
+
+
+    if(!chat) return;
+
+
+    chat.innerHTML =
+    renderGameTechMessages();
+
+
+    chat.scrollTop =
+    chat.scrollHeight;
+
+
+}
