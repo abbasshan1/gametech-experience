@@ -1,148 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GameTech OS</title>
-
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/navbar.css">
-    <link rel="stylesheet" href="../css/mobile.css">
-    <link rel="stylesheet" href="../css/animations.css">
-    <link rel="stylesheet" href="../css/os-ui.css">
-    <link rel="stylesheet" href="../css/windows.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GameTech OS</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/navbar.css">
+<link rel="stylesheet" href="../css/mobile.css">
+<link rel="stylesheet" href="../css/animations.css">
+<link rel="stylesheet" href="../css/os-ui.css">
+<link rel="stylesheet" href="../css/windows.css">
 </head>
-
-
-<body>
-
-<div class="dashboard">
-
-    <h1>GameTech OS</h1>
-
-    <div class="ai-terminal">
-
-        <div class="terminal-title">
-            GAME TECH AI ONLINE
+<body class="gt-os-body">
+<div class="gt-shell">
+    <header class="gt-topbar">
+        <div class="gt-brand">
+            <img src="../assets/logo.png" alt="GameTech">
+            <div><strong>GameTech OS</strong><span>Experience</span></div>
         </div>
+        <div class="gt-top-status"><span class="status-dot"></span> SYSTEM ONLINE</div>
+        <button class="gt-ai-launch" id="topAiButton">GT AI <span>→</span></button>
+    </header>
 
-        <div class="terminal-box">
+    <main class="gt-desktop">
+        <section class="gt-hero">
+            <div>
+                <div class="eyebrow">GAME TECH INTELLIGENCE SYSTEM</div>
+                <h1>Build smarter.<br><span>Work faster.</span></h1>
+                <p>Gaming PCs, creative workstations, AI systems and business machines — designed around what you actually do.</p>
+                <button class="hero-ai" id="heroAiButton"><span>✦</span> Start GT AI Consultation</button>
+            </div>
+            <div class="gt-hero-card">
+                <div class="hero-card-label">GT AI</div>
+                <div class="hero-orb"><span>GT</span></div>
+                <strong>Personal PC Consultant</strong>
+                <small>Real AI reasoning · GameTech expertise</small>
+            </div>
+        </section>
 
-            <p>Hello.</p>
+        <section class="gt-section">
+            <div class="section-heading"><div><span>01</span><h2>GameTech Systems</h2></div><p>Choose a system category</p></div>
+            <div class="gt-app-grid">
+                <button class="gt-app" id="windows" data-label="Windows Systems"><span class="gt-icon windows-icon">▦</span><b>Windows</b><small>Windows Systems</small></button>
+                <button class="gt-app" id="game" data-label="Gaming Machine"><span class="gt-icon game-icon">⌁</span><b>Gaming Machine</b><small>Gaming PCs</small></button>
+                <button class="gt-app" id="create" data-label="Video Render Machine"><span class="gt-icon render-icon">◆</span><b>Video Render</b><small>Editing & 3D</small></button>
+                <button class="gt-app" id="aiworkstation" data-label="AI Workstation"><span class="gt-icon ai-icon">✦</span><b>AI Workstation</b><small>AI & Compute</small></button>
+                <button class="gt-app" id="business" data-label="Office Systems"><span class="gt-icon office-icon">▣</span><b>Office Systems</b><small>Business PCs</small></button>
+            </div>
+        </section>
 
-            <p>I'm your AI Technology Consultant.</p>
+        <section class="gt-section gt-connect-section">
+            <div class="section-heading"><div><span>02</span><h2>Connect</h2></div><p>Talk to the GameTech team</p></div>
+            <div class="gt-link-grid">
+                <button class="gt-link-app" data-url="https://wa.me/923459075030"><span>WA</span><b>WhatsApp Shan</b><small>Direct consultation</small></button>
+                <button class="gt-link-app" data-url="https://wa.me/923138988981"><span>WA</span><b>WhatsApp Ertaza</b><small>Direct consultation</small></button>
+                <button class="gt-link-app" data-url="https://www.instagram.com/gametech_1/"><span>IG</span><b>Instagram</b><small>GameTech</small></button>
+                <button class="gt-link-app" data-url="https://www.youtube.com/@shaneabbas7046"><span>YT</span><b>YouTube</b><small>Shan Abbas</small></button>
+                <button class="gt-link-app" data-url="https://www.tiktok.com/@gametech_1"><span>TK</span><b>TikTok</b><small>GameTech</small></button>
+                <button class="gt-link-app" data-url="https://www.facebook.com/gametech.kpk"><span>FB</span><b>Facebook</b><small>GameTech</small></button>
+            </div>
+        </section>
+    </main>
 
-            <p>
-                I can help you build gaming PCs,
-                AI workstations, business infrastructure,
-                troubleshoot computers, or connect you
-                directly with our experts.
-            </p>
-
-            <p><strong>Choose a module below.</strong></p>
-
-        </div>
-
-    </div>
-
-    <div class="os-desktop">
-
-        <div class="os-app" id="game">
-            <div class="app-icon">🎮</div>
-            <h3>GAME</h3>
-            <p>Gaming Systems</p>
-        </div>
-
-        <div class="os-app" id="create">
-            <div class="app-icon">🖥</div>
-            <h3>CREATE</h3>
-            <p>AI & Workstations</p>
-        </div>
-
-        <div class="os-app" id="support">
-            <div class="app-icon">🛠</div>
-            <h3>SUPPORT</h3>
-            <p>Technical Help</p>
-        </div>
-
-        <div class="os-app" id="business">
-            <div class="app-icon">🏢</div>
-            <h3>BUSINESS</h3>
-            <p>Enterprise Solutions</p>
-        </div>
-
-        <div class="os-app" id="connect">
-            <div class="app-icon">📹</div>
-            <h3>CONNECT</h3>
-            <p>Meet Shan & Ertaza</p>
-        </div>
-
-    </div>
-
+    <footer class="gt-dock">
+        <button class="dock-item active" id="dockHome"><span>⌂</span><small>Home</small></button>
+        <button class="dock-item" id="dockGame"><span>◈</span><small>GAME</small></button>
+        <button class="dock-item" id="dockCreate"><span>◆</span><small>CREATE</small></button>
+        <button class="dock-item" id="dockSupport"><span>+</span><small>SUPPORT</small></button>
+        <button class="dock-item" id="dockBusiness"><span>▣</span><small>BUSINESS</small></button>
+        <button class="dock-item" id="dockConnect"><span>◎</span><small>CONNECT</small></button>
+        <div class="dock-clock" id="clock">--:--</div>
+    </footer>
 </div>
 
-<div id="workspace" class="workspace">
-
-    <div class="workspace-header">
-
-        <h2 id="workspace-title">
-            GameTech AI
-        </h2>
-
-        <button id="closeWorkspace">
-            ✕
-        </button>
-
-    </div>
-
-    <div id="workspace-content">
-
-        <p>Select a module to begin.</p>
-
-    </div>
-
-</div> <!-- GT-001 Window Manager -->
-<div id="windowManager" class="window-manager"></div>
-<div class="taskbar">
-
-    <button id="startButton" class="start-btn">
-        GT
-    </button>
-
-    <div class="taskbar-center">
-        <span>GameTech OS</span>
-    </div>
-
-    <div class="taskbar-right">
-
-        <span id="clock"></span>
-
-    </div>
-
+<div id="workspace" class="workspace" aria-hidden="true">
+    <div class="workspace-header"><div><span class="workspace-kicker">GAMETECH OS</span><h2 id="workspace-title">GameTech AI</h2></div><button id="closeWorkspace" aria-label="Close">×</button></div>
+    <div id="workspace-content"></div>
 </div>
 
-<div id="startMenu" class="start-menu">
-
-    <h3>GameTech OS</h3>
-
-    <button data-app="game">🎮 Gaming</button>
-
-    <button data-app="create">🖥 AI Workstations</button>
-
-<button data-app="game">🤖 GameTech AI</button>
-    <button data-app="support">🛠 Support</button>
-
-    <button data-app="business">🏢 Business</button>
-
-    <button data-app="connect">📹 Connect</button>
-
-</div>
 <script src="../js/windows.js"></script>
 <script src="../js/consultation.js"></script>
-<script src="../js/recommendation-engine.js"></script>
 <script src="../js/gametech-ai.js"></script>
 <script src="../js/dashboard.js"></script>
-
 </body>
 </html>

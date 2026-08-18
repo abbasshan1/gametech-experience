@@ -657,3 +657,195 @@ padding-top:140px;
     pointer-events: none;
 
 }
+/* ==========================================
+   Polished CTAs, services strip, footer
+========================================== */
+
+.hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 22px 0 14px;
+}
+
+.hero-secondary-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.btn.primary-cta {
+    background: linear-gradient(135deg, #59FF39, #2fd416) !important;
+    color: #050505 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    padding: 14px 22px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(89, 255, 57, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(89, 255, 57, 0.5);
+}
+
+.btn.whatsapp-cta {
+    background: rgba(37, 211, 102, 0.15) !important;
+    color: #25d366 !important;
+    border: 1px solid rgba(37, 211, 102, 0.45) !important;
+    font-weight: 600 !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn.whatsapp-cta:hover {
+    background: rgba(37, 211, 102, 0.25) !important;
+    transform: translateY(-2px);
+}
+
+.nav-cta {
+    color: #59FF39 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 12px rgba(89, 255, 57, 0.4);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 10px 11px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #59FF39;
+    border-radius: 2px;
+    transition: 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.services-strip {
+    background: linear-gradient(180deg, #050505, #0a0c0e);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 28px 20px;
+}
+
+.services-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.service-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(89, 255, 57, 0.22);
+    color: #e8ece9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.service-chip:hover {
+    border-color: #59FF39;
+    background: rgba(89, 255, 57, 0.08);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.service-chip span {
+    font-size: 16px;
+}
+
+.site-footer {
+    background: #050505;
+    padding: 40px 24px 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand img {
+    border-radius: 8px;
+}
+
+.footer-brand strong {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+}
+
+.footer-brand span {
+    display: block;
+    color: #8a9390;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #aeb8b4;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #59FF39;
+}
+
+.footer-copy {
+    margin: 0;
+    color: #5c6662;
+    font-size: 12px;
+}

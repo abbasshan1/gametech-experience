@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameTech AI Consultant</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/navbar.css">
+    <link rel="stylesheet" href="../css/mobile.css">
+    <link rel="stylesheet" href="../css/animations.css">
+    <link rel="stylesheet" href="../css/os-ui.css">
+    <link rel="stylesheet" href="../css/windows.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div id="gtStandalone"></div>
+    </div>
+
+    <script>
+        /*
+          When your PC AI is online for remote customers, set the tunnel URL here, e.g.:
+          window.GAME_TECH_API = "https://your-name.trycloudflare.com";
+
+          Leave empty on GitHub Pages when the host PC is offline —
+          the form still works and shows "AI offline + WhatsApp".
+        */
+        // window.GAME_TECH_API = "https://YOUR-TUNNEL-URL";
+    </script>
+    <script src="../js/consultation.js"></script>
+    <script src="../js/gametech-ai.js"></script>
+    <script>
+        document.getElementById("gtStandalone").innerHTML = getGameTechAI();
+        startGTBuildConsultation();
+    </script>
+</body>
+</html>

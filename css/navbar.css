@@ -461,3 +461,9 @@
     height:20px;
 
 }
+
+/* Mobile menu positioning */
+.navbar {
+    position: relative;
+    z-index: 50;
+}
