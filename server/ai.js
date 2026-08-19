@@ -4,7 +4,7 @@ const SYSTEM_PROMPT = require("./prompt");
 
 const MODEL =
     process.env.OPENROUTER_MODEL ||
-    "nvidia/nemotron-3-ultra-550b-a55b:free";
+    "openrouter/free";
 
 function extractJson(text) {
     if (typeof text !== "string") {
@@ -169,19 +169,73 @@ async function callOpenRouter(messages) {
     const data = await response.json().catch(() => ({}));
 
     if (!response.ok) {
-        throw new Error(
+        console.error("OPENROUTER FULL ERROR:", JSON.stringify(data, null, 2));
+        const providerMsg =
             data?.error?.message ||
-                `OpenRouter returned HTTP ${response.status}.`
+            data?.error?.metadata?.raw ||
+            data?.error?.metadata?.provider_name ||
+            data?.error?.code ||
+            "";
+        const meta = data?.error?.metadata
+            ? " | meta: " + JSON.stringify(data.error.metadata).slice(0, 200)
+            : "";
+        throw new Error(
+            (providerMsg
+                ? "Provider returned error: " + String(providerMsg).slice(0, 240) + meta
+                : "OpenRouter HTTP " + response.status + meta) +
+                " — try again or switch OPENROUTER_MODEL in .env"
+        );
+    }
+
+    // Some providers return 200 with error-shaped payload
+    if (data?.error) {
+        console.error("OPENROUTER PAYLOAD ERROR:", JSON.stringify(data, null, 2));
+        throw new Error(
+            "Provider returned error: " +
+                String(data.error.message || JSON.stringify(data.error)).slice(0, 240)
         );
     }
 
     const content = data?.choices?.[0]?.message?.content;
 
-    if (!content) {
-        throw new Error("AI returned an empty response.");
+    if (!content || !String(content).trim()) {
+        const errDetail =
+            data?.error?.message ||
+            data?.choices?.[0]?.finish_reason ||
+            "empty content";
+        throw new Error(
+            "AI returned an empty response (" + errDetail + "). Free models sometimes fail — try again."
+        );
     }
 
-    return content.trim();
+    return String(content).trim();
+}
+
+async function callOpenRouterWithRetry(messages, attempts = 2) {
+    let lastError;
+    for (let i = 0; i < attempts; i++) {
+        try {
+            return await callOpenRouter(messages);
+        } catch (error) {
+            lastError = error;
+            const msg = String(error && error.message || error);
+            // Retry empty / transient failures once
+            if (
+                i < attempts - 1 &&
+                (/empty response/i.test(msg) ||
+                    /rate limit/i.test(msg) ||
+                    /temporar/i.test(msg) ||
+                    /HTTP 429/i.test(msg) ||
+                    /HTTP 502/i.test(msg) ||
+                    /HTTP 503/i.test(msg))
+            ) {
+                await new Promise((r) => setTimeout(r, 1500));
+                continue;
+            }
+            throw error;
+        }
+    }
+    throw lastError;
 }
 
 async function askGameTechAI(messages) {
@@ -194,14 +248,14 @@ async function askGameTechAI(messages) {
           )
         : [];
 
-    return callOpenRouter([
+    return callOpenRouterWithRetry([
         { role: "system", content: SYSTEM_PROMPT },
         ...safe
     ]);
 }
 
 async function recommendBuild(consultation) {
-    const reply = await callOpenRouter([
+    const reply = await callOpenRouterWithRetry([
         { role: "system", content: SYSTEM_PROMPT },
         {
             role: "user",

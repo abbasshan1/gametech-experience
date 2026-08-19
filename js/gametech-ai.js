@@ -471,7 +471,7 @@ async function finishGTConsultation() {
         renderGTBuildResult(data.recommendation);
     } catch (error) {
         console.error("GT AI recommendation error:", error);
-        showGTOfflinePanel(error);
+        showGTErrorPanel(error);
     }
 }
 
@@ -489,32 +489,59 @@ function buildConsultationSummaryText() {
     return lines.join("\n");
 }
 
-function showGTOfflinePanel(error) {
+function showGTErrorPanel(error) {
     const actions = document.getElementById("gtConsultationActions");
-    const msg =
-        "GameTech AI consultant is not available from the host right now.\n\n" +
-        "Our AI server only runs when the GameTech PC is online. " +
-        "Please try again later, or contact us on WhatsApp with your requirements — we will build your PC manually.";
+    const raw = String((error && error.message) || error || "");
+    const isOffline =
+        /OFFLINE_NO_API/i.test(raw) ||
+        ((/Failed to fetch/i.test(raw) ||
+          /NetworkError/i.test(raw) ||
+          /Load failed/i.test(raw) ||
+          /ECONNREFUSED/i.test(raw)) &&
+            !/Provider returned error/i.test(raw) &&
+            !/OpenRouter/i.test(raw) &&
+            !/empty response/i.test(raw));
+    const isEmptyAI = /empty response/i.test(raw);
 
-    gameTechConversation.push({ role: "assistant", content: msg });
+    let title;
+    let detail;
+    if (isOffline) {
+        title = "AI consultant offline";
+        detail =
+            "The AI server is not reachable right now. This usually means the GameTech host PC is offline or the AI service is not running.";
+    } else if (isEmptyAI) {
+        title = "AI model returned no answer";
+        detail =
+            "The free AI model replied empty (common on busy free models). Click Try AI again — it often works on the second attempt. Or WhatsApp us with your answers.";
+    } else {
+        title = "AI recommendation failed";
+        detail =
+            "Something went wrong while building your recommendation. " +
+            (raw ? "(" + raw.slice(0, 160) + ") " : "") +
+            "Try again, or WhatsApp GameTech with your answers.";
+    }
+
+    const chatMsg = isOffline
+        ? "GameTech AI consultant is not available from the host right now.\n\nOur AI server only runs when the GameTech PC is online. Please try again later, or contact us on WhatsApp with your requirements — we will build your PC manually."
+        : isEmptyAI
+          ? "The AI model returned an empty answer. This happens sometimes with free models. Please press Try AI again, or WhatsApp us your requirements."
+          : "I could not complete the AI recommendation. " + raw.slice(0, 200);
+
+    gameTechConversation.push({ role: "assistant", content: chatMsg });
     updateGameTechChat();
 
     const summary = buildConsultationSummaryText();
     const waText =
-        "Hello GameTech, I completed the GT AI questionnaire but the AI consultant is offline.\n\n" +
-        "Please help me with a PC build.\n\n" +
+        "Hello GameTech, I used GT AI but need help with my PC build.\n\n" +
         summary;
 
     if (actions) {
         actions.innerHTML = `
             <div class="gt-offline-panel">
-                <div class="gt-offline-title">AI consultant offline</div>
-                <p>
-                    The AI server is not reachable at the moment.
-                    This usually means the GameTech host PC is offline or the AI service is not running.
-                </p>
+                <div class="gt-offline-title">${escGT(title)}</div>
+                <p>${escGT(detail)}</p>
                 <p class="gt-offline-hint">
-                    You can WhatsApp your answers now, or try again when the consultant is online.
+                    You can WhatsApp your answers now, or try the AI again.
                 </p>
                 <div class="gt-build-actions">
                     <a class="gt-primary gt-wa-link"
