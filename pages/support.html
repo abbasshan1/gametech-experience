@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+<title>GameTech Support</title>
+
+<link rel="stylesheet" href="../css/style.css">
+
+</head>
+
+<body>
+<section class="support-page">
+
+    <div class="support-box">
+
+        <h1>GameTech Technical Support</h1>
+
+        <p>
+            Need help with your PC?
+            Fill in the details below and our technical specialist,
+            <strong>Ertaza Abbas</strong>, will contact you on WhatsApp.
+        </p>
+
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Your Name">
+
+        <input
+            type="tel"
+            id="customerWhatsapp"
+            placeholder="WhatsApp Number">
+
+        <input
+            type="text"
+            id="device"
+            placeholder="PC / Laptop / Component">
+
+        <select id="issue">
+
+            <option value="">Select Issue</option>
+
+            <option>Windows Problem</option>
+
+            <option>Gaming Performance</option>
+
+            <option>Hardware Fault</option>
+
+            <option>Internet / Networking</option>
+
+            <option>Upgrade Advice</option>
+
+            <option>Other</option>
+
+        </select>
+
+        <textarea
+            id="description"
+            rows="6"
+            placeholder="Describe your issue..."></textarea>
+
+        <button onclick="sendSupportRequest()">
+
+            Contact Ertaza on WhatsApp
+
+        </button>
+
+    </div>
+
+</section>
+
+<script src="../js/support.js"></script>
+</body>
+
+</html>

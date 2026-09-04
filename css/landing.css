@@ -1,0 +1,851 @@
+/* ==========================================
+   GameTech Landing Page V3
+   Part 1 - Layout
+========================================== */
+
+:root{
+
+    --gt-green:#59FF39;
+    --gt-blue:#1877F2;
+    --glass:rgba(255,255,255,.06);
+    --glass-border:rgba(255,255,255,.10);
+
+}
+
+body{
+
+    overflow-x:hidden;
+
+}
+
+/* ===========================
+   HERO
+=========================== */
+
+.hero{
+position:relative;
+z-index:1;
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:120px 50px 80px;
+
+    background:
+    radial-gradient(circle at top,#59FF3920,transparent 35%),
+    radial-gradient(circle at bottom,#00ff9920,transparent 35%),
+    #050505;
+
+}
+
+/* ===========================
+   3 COLUMN LAYOUT
+=========================== */
+
+.hero-layout{
+
+    width:100%;
+
+    max-width:1800px;
+
+    display:grid;
+
+    grid-template-columns:320px 1fr 320px;
+
+    gap:45px;
+
+    align-items:center;
+
+}
+
+/* ===========================
+   CENTER GLASS
+=========================== */
+
+.hero-layout .glass{
+
+    position:relative;
+
+    width:100%;
+
+    max-width:700px;
+
+    margin:auto;
+
+    padding:60px 45px;
+
+    border-radius:28px;
+
+    background:rgba(15,15,15,.55);
+
+    backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,.10);
+
+    overflow:hidden;
+
+    box-shadow:
+        0 0 35px rgba(89,255,57,.18),
+        inset 0 0 18px rgba(255,255,255,.05);
+        transform-style: preserve-3d;
+transition: transform .15s ease;
+will-change: transform;
+cursor:default;
+
+}
+
+.hero-layout .glass > *{
+
+    position:relative;
+
+    z-index:1;
+
+}
+
+/* RGB Animated Border */
+
+.hero-layout .glass::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:30px;
+
+    background:linear-gradient(
+        90deg,
+        #59FF39,
+        #00E5FF,
+        #7C4DFF,
+        #FF2D55,
+        #59FF39
+    );
+
+    background-size:300% 300%;
+
+    animation:rgbBorder 8s linear infinite;
+
+    z-index:-2;
+
+}
+
+/* Inner Glass Layer */
+
+.hero-layout .glass::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border-radius:26px;
+
+    background:rgba(15,15,15,.92);
+
+    z-index:-1;
+
+}
+/* ===========================
+   LOGO
+=========================== */
+
+.logo{
+
+    width:180px;
+
+    display:block;
+
+    margin:0 auto 25px;
+
+}
+
+/* ===========================
+   TITLES
+=========================== */
+
+.hero-layout h1{
+
+    font-size:58px;
+
+    text-align:center;
+
+    font-family:'Orbitron',sans-serif;
+
+    color:white;
+
+    margin-bottom:10px;
+
+}
+
+.hero-layout h3{
+
+    text-align:center;
+
+    color:#d7d7d7;
+
+    margin-bottom:35px;
+
+    font-weight:400;
+
+}
+
+.hero-layout p{
+
+    text-align:center;
+
+    line-height:1.8;
+
+    color:#d4d4d4;
+
+    margin-bottom:35px;
+
+}
+
+/* ===========================
+   BUTTONS
+=========================== */
+
+.hero-layout .btn{
+
+    display:block;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    padding:18px;
+
+    border-radius:14px;
+
+    margin-bottom:18px;
+
+    font-weight:600;
+
+    transition:.30s;
+
+}
+
+.hero-layout .google{
+
+    background:var(--gt-green);
+
+    color:black;
+
+}
+
+.hero-layout .facebook{
+
+    background:var(--gt-blue);
+
+    color:white;
+
+}
+
+.hero-layout .btn:hover{
+
+    transform:translateY(-4px);
+
+}
+
+/* ===========================
+   SOCIALS
+=========================== */
+
+.social{
+
+    display:flex;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    margin-top:35px;
+
+}
+
+.social a{
+
+    color:white;
+
+    text-decoration:none;
+
+    transition:.30s;
+
+}
+
+.social a:hover{
+
+    color:var(--gt-green);
+
+}
+
+/* ===========================
+   REVIEW PANELS
+=========================== */
+
+.reviews-panel{
+
+position: relative;
+    height:720px;
+
+    border-radius:24px;
+
+    overflow:hidden;
+
+    background:rgba(255,255,255,.05);
+
+    backdrop-filter:blur(16px);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    display:flex;
+
+    flex-direction:column;
+    
+
+}
+
+.google-panel{
+
+    box-shadow:0 0 30px rgba(89,255,57,.18);
+
+}
+
+.facebook-panel{
+
+    box-shadow:0 0 30px rgba(24,119,242,.20);
+
+}
+
+.panel-title{
+
+    padding:22px;
+
+    text-align:center;
+
+    font-size:22px;
+
+    font-family:'Orbitron',sans-serif;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.reviews-track{
+
+    flex:1;
+
+    overflow:hidden;
+
+    padding:20px;
+
+}
+
+/* ===========================
+   RESPONSIVE
+=========================== */
+
+@media(max-width:1400px){
+
+.hero-layout{
+
+grid-template-columns:280px 1fr 280px;
+
+}
+
+}
+
+@media(max-width:1150px){
+
+.hero-layout{
+
+grid-template-columns:1fr;
+
+}
+
+.reviews-panel{
+
+height:300px;
+
+}
+
+.hero{
+
+padding-top:140px;
+
+}
+
+}
+/* ==========================================
+   LIVE SCROLLING REVIEWS
+========================================== */
+
+.reviews-track{
+
+    height:100%;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+}
+
+.reviews-inner{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+    animation:scrollReviews 30s linear infinite;
+}
+
+.review-card{
+
+    background:rgba(255,255,255,.05);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:16px;
+
+    padding:18px;
+
+    color:white;
+
+    backdrop-filter:blur(10px);
+
+}
+
+.review-card h4{
+
+    margin-bottom:8px;
+
+    color:#59FF39;
+
+}
+
+.stars{
+
+    color:#FFD700;
+
+    margin-bottom:10px;
+
+    letter-spacing:2px;
+
+}
+
+@keyframes scrollReviews{
+
+    0%{
+        transform:translateY(0);
+    }
+
+    100%{
+        transform:translateY(-50%);
+    }
+
+}
+
+/* ==========================================
+   REVIEW PANEL FADE EFFECT
+========================================== */
+
+.reviews-panel::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:0;
+
+    width:100%;
+
+    height:80px;
+
+    background:linear-gradient(to bottom,#050505 0%,transparent 100%);
+
+    pointer-events:none;
+
+    z-index:10;
+
+}
+
+.reviews-panel::after{
+
+    content:"";
+
+    position:absolute;
+
+    bottom:0;
+
+    left:0;
+
+    width:100%;
+
+    height:80px;
+
+    background:linear-gradient(to top,#050505 0%,transparent 100%);
+
+    pointer-events:none;
+
+    z-index:10;
+
+}
+
+.review-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+}
+
+.review-header h4{
+
+    margin:0;
+
+}
+
+.stars{
+
+    color:#FFD700;
+
+    font-size:18px;
+
+    letter-spacing:2px;
+
+}
+/* ==========================================
+   REVIEW USER
+========================================== */
+
+.review-user{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+.avatar{
+
+    min-width:42px;
+    width:42px;
+
+    min-height:42px;
+    height:42px;
+
+    display:flex !important;
+
+    align-items:center;
+    justify-content:center;
+
+    flex:0 0 42px;
+
+    border-radius:50%;
+
+    background:#59FF39;
+
+    color:#000;
+
+    font-weight:bold;
+
+    font-size:18px;
+
+    box-shadow:0 0 15px rgba(89,255,57,.35);
+
+}
+
+.review-user h4{
+
+    margin:0;
+
+    font-size:16px;
+
+    color:white;
+
+}
+
+.review-user small{
+
+    display:block;
+
+    color:#9e9e9e;
+
+    font-size:12px;
+
+    margin-top:2px;
+
+}
+
+.review-time{
+
+    display:block;
+
+    color:#7f7f7f;
+
+    font-size:12px;
+
+    margin:10px 0;
+
+}
+
+.review-badge{
+
+    margin-top:12px;
+
+    color:#59FF39;
+
+    font-size:12px;
+
+    font-weight:600;
+
+}
+
+@keyframes rgbBorder{
+
+    0%{
+        background-position:0% 50%;
+    }
+
+    50%{
+        background-position:100% 50%;
+    }
+
+    100%{
+        background-position:0% 50%;
+    }
+
+}
+
+/* ==========================================
+   GT Background Canvas
+========================================== */
+
+#gt-background{
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    z-index: -1;
+
+    pointer-events: none;
+
+}
+/* ==========================================
+   Polished CTAs, services strip, footer
+========================================== */
+
+.hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+    margin: 22px 0 14px;
+}
+
+.hero-secondary-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 18px;
+}
+
+.btn.primary-cta {
+    background: linear-gradient(135deg, #59FF39, #2fd416) !important;
+    color: #050505 !important;
+    font-weight: 700 !important;
+    border: none !important;
+    padding: 14px 22px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    box-shadow: 0 0 24px rgba(89, 255, 57, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn.primary-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0 32px rgba(89, 255, 57, 0.5);
+}
+
+.btn.whatsapp-cta {
+    background: rgba(37, 211, 102, 0.15) !important;
+    color: #25d366 !important;
+    border: 1px solid rgba(37, 211, 102, 0.45) !important;
+    font-weight: 600 !important;
+    padding: 14px 20px !important;
+    border-radius: 12px !important;
+    text-decoration: none !important;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.btn.whatsapp-cta:hover {
+    background: rgba(37, 211, 102, 0.25) !important;
+    transform: translateY(-2px);
+}
+
+.nav-cta {
+    color: #59FF39 !important;
+    font-weight: 700 !important;
+    text-shadow: 0 0 12px rgba(89, 255, 57, 0.4);
+}
+
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 10px;
+    padding: 10px 11px;
+    cursor: pointer;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: #59FF39;
+    border-radius: 2px;
+    transition: 0.2s ease;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+.services-strip {
+    background: linear-gradient(180deg, #050505, #0a0c0e);
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding: 28px 20px;
+}
+
+.services-strip-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: center;
+}
+
+.service-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(89, 255, 57, 0.22);
+    color: #e8ece9;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+}
+
+.service-chip:hover {
+    border-color: #59FF39;
+    background: rgba(89, 255, 57, 0.08);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.service-chip span {
+    font-size: 16px;
+}
+
+.site-footer {
+    background: #050505;
+    padding: 40px 24px 28px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-brand img {
+    border-radius: 8px;
+}
+
+.footer-brand strong {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+}
+
+.footer-brand span {
+    display: block;
+    color: #8a9390;
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 18px;
+    justify-content: center;
+}
+
+.footer-links a {
+    color: #aeb8b4;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.footer-links a:hover {
+    color: #59FF39;
+}
+
+.footer-copy {
+    margin: 0;
+    color: #5c6662;
+    font-size: 12px;
+}

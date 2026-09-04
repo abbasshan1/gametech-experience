@@ -1,0 +1,299 @@
+/* GameTech responsive — PC + mobile */
+
+html {
+    -webkit-text-size-adjust: 100%;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Tablet */
+@media (max-width: 1100px) {
+    .hero {
+        padding: 110px 24px 60px !important;
+    }
+
+    .hero-layout {
+        grid-template-columns: 1fr !important;
+        gap: 24px !important;
+        max-width: 640px !important;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .reviews-panel {
+        max-height: 220px;
+        order: 2;
+        width: 100%;
+    }
+
+    .hero-layout .glass {
+        order: 1;
+        width: 100%;
+        max-width: 100% !important;
+        box-sizing: border-box;
+    }
+
+    .facebook-panel {
+        order: 3;
+    }
+}
+
+/* Phone */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+    }
+
+    .navbar {
+        position: sticky !important;
+        top: 0;
+        padding: 12px 14px !important;
+        gap: 10px;
+        display: flex !important;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .nav-logo span {
+        font-size: 15px;
+    }
+
+    .nav-logo img {
+        width: 34px;
+        height: 34px;
+    }
+
+    .nav-toggle {
+        display: flex !important;
+        margin-left: auto;
+        flex-shrink: 0;
+    }
+
+    .nav-links {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        left: 10px;
+        right: 10px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 12px;
+        background: rgba(8, 10, 12, 0.97);
+        border: 1px solid rgba(89, 255, 57, 0.28);
+        border-radius: 14px;
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.55);
+        z-index: 200;
+        max-height: min(70vh, 520px);
+        overflow-y: auto;
+    }
+
+    .nav-links.open {
+        display: flex !important;
+    }
+
+    .nav-links > a,
+    .nav-links .drop-btn {
+        width: 100%;
+        text-align: left;
+        padding: 13px 14px;
+        border-radius: 10px;
+        font-size: 15px;
+        box-sizing: border-box;
+    }
+
+    .nav-dropdown {
+        width: 100%;
+    }
+
+    .services-dropdown,
+    .contact-dropdown {
+        position: static !important;
+        transform: none !important;
+        width: 100% !important;
+        margin-top: 6px;
+        max-height: none;
+        box-shadow: none !important;
+    }
+
+    .hero {
+        padding: 88px 14px 40px !important;
+        min-height: auto !important;
+        align-items: flex-start !important;
+    }
+
+    .hero-layout .glass {
+        padding: 32px 18px !important;
+        border-radius: 20px !important;
+    }
+
+    .hero-layout .glass h1 {
+        font-size: clamp(26px, 9vw, 38px) !important;
+        letter-spacing: 1px !important;
+        line-height: 1.15 !important;
+    }
+
+    .hero-layout .glass h3 {
+        font-size: 15px !important;
+    }
+
+    .hero-layout .glass p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+    }
+
+    .logo {
+        width: 110px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .hero-cta-row,
+    .hero-secondary-row {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .btn.primary-cta,
+    .btn.whatsapp-cta,
+    .btn.google,
+    .btn.facebook {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+        display: block;
+        padding: 14px 16px !important;
+        font-size: 14px !important;
+    }
+
+    .social {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px 14px;
+        font-size: 13px;
+    }
+
+    .reviews-panel {
+        max-height: 190px;
+        border-radius: 16px;
+    }
+
+    .panel-title {
+        font-size: 13px !important;
+    }
+
+    .services-strip {
+        padding: 18px 12px;
+    }
+
+    .services-strip-inner {
+        gap: 10px;
+    }
+
+    .service-chip {
+        flex: 1 1 calc(50% - 10px);
+        justify-content: center;
+        font-size: 12.5px;
+        padding: 12px 10px;
+        min-width: 0;
+    }
+
+    .site-footer {
+        padding: 32px 16px 24px;
+    }
+
+    .footer-links {
+        gap: 10px 16px;
+    }
+
+    /* GT AI / dashboard pages */
+    .gt-ai {
+        padding: 12px 8px !important;
+    }
+
+    .gt-ai-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 10px !important;
+    }
+
+    .gt-chat {
+        max-height: 42vh !important;
+        min-height: 180px !important;
+    }
+
+    .gt-option-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .gt-inline-input,
+    .gt-input-area,
+    .gt-build-actions {
+        flex-direction: column !important;
+    }
+
+    .gt-build-actions button,
+    .gt-input-area button {
+        width: 100%;
+    }
+
+    .gt-dock {
+        width: calc(100% - 16px) !important;
+        bottom: 10px !important;
+        padding: 6px 6px !important;
+        gap: 2px !important;
+    }
+
+    .dock-item {
+        padding: 6px 4px !important;
+    }
+
+    .dock-item small {
+        font-size: 7px !important;
+    }
+
+    .workspace {
+        padding: 10px !important;
+    }
+
+    .workspace > #workspace-content {
+        max-height: 78vh !important;
+    }
+}
+
+@media (max-width: 420px) {
+    .service-chip {
+        flex: 1 1 100%;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-logo span {
+        max-width: 120px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+}
+
+/* Touch-friendly */
+@media (hover: none) and (pointer: coarse) {
+    .nav-links > a,
+    .drop-btn,
+    .service-chip,
+    .btn {
+        min-height: 44px;
+    }
+
+    .hero-layout .glass {
+        transform: none !important;
+    }
+}
