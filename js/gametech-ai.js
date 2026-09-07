@@ -607,9 +607,10 @@ function renderGTBuildResult(recommendation) {
                 </div>
                 <strong>AI SELECTED BUILD</strong>
             </div>
-            <div class="gt-build-note">
+                       <div class="gt-build-note">
                 <strong>Why this build</strong><br>${escGT(recommendation.summary || "")}
                 <br><br><strong>Budget Fit</strong><br>${escGT(recommendation.budget_fit || "")}
+                ${recommendation.estimated_price ? `<br><br><strong>Estimated Price</strong><br>${escGT(recommendation.estimated_price)}` : ""}
                 <br><br><strong>Performance Focus</strong><br>${escGT(recommendation.performance_focus || "")}
                 <br><br><strong>Upgrade Plan</strong><br>${escGT(recommendation.upgrade_plan || "")}
                 ${recommendation.customer_note ? `<br><br><strong>GameTech Note</strong><br>${escGT(recommendation.customer_note)}` : ""}
@@ -634,6 +635,7 @@ function renderGTBuildResult(recommendation) {
             `Budget: ${consultation.budget}\n` +
             `Condition: ${consultation.condition}\n\n` +
             `GameTech AI recommended:\n${quote}\n\n` +
+            `Estimated Price: ${recommendation.estimated_price || "Not provided"}\n` +
             `AI Summary: ${recommendation.summary}`;
         window.open(`https://wa.me/${GAME_TECH_WHATSAPP}?text=${encodeURIComponent(message)}`, "_blank", "noopener,noreferrer");
     });

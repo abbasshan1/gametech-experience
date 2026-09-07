@@ -124,6 +124,7 @@ function normaliseRecommendation(raw) {
         summary: String(raw.summary || "").trim(),
         components,
         budget_fit: String(raw.budget_fit || "").trim(),
+        estimated_price: String(raw.estimated_price || "").trim(),
         performance_focus: String(raw.performance_focus || "").trim(),
         upgrade_plan: String(raw.upgrade_plan || "").trim(),
         customer_note: String(raw.customer_note || "")
