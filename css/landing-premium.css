@@ -436,27 +436,6 @@ body.landing-premium {
   margin: 12px 0 0;
 }
 
-/* Responsive */
-@media (max-width: 1000px) {
-  .lp-hero { grid-template-columns: 1fr; text-align: center; }
-  .lp-hero p { margin-left: auto; margin-right: auto; }
-  .lp-actions { justify-content: center; }
-  .lp-stats { justify-content: center; }
-  .lp-services-grid { grid-template-columns: repeat(2, 1fr); }
-  .lp-ai-inner { grid-template-columns: 1fr; text-align: center; }
-  .lp-why-grid { grid-template-columns: repeat(2, 1fr); }
-  .lp-contact-grid { grid-template-columns: 1fr; }
-  .lp-builds-grid { grid-template-columns: repeat(2, 1fr); }
-  .lp-shop-grid { grid-template-columns: repeat(3, 1fr); }
-}
-@media (max-width: 600px) {
-  .lp-hero, .lp-services, .lp-why, .lp-contact { padding: 40px 20px; }
-  .lp-services-grid, .lp-why-grid { grid-template-columns: 1fr; }
-  .premium-nav .nav-links { display: none; }
-  .lp-builds-grid { grid-template-columns: 1fr; }
-  .lp-shop-grid { grid-template-columns: repeat(2, 1fr); }
-  .lp-reviews-inner { padding: 28px 20px; }
-}
 
 /* FEATURED BUILDS */
 .lp-builds-grid {
@@ -583,4 +562,26 @@ body.landing-premium {
   color: #999;
   font-size: 14px;
   margin-bottom: 22px;
+}
+
+/* Responsive (kept last so these always win the cascade) */
+@media (max-width: 1000px) {
+  .lp-hero { grid-template-columns: 1fr; text-align: center; }
+  .lp-hero p { margin-left: auto; margin-right: auto; }
+  .lp-actions { justify-content: center; }
+  .lp-stats { justify-content: center; }
+  .lp-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-ai-inner { grid-template-columns: 1fr; text-align: center; }
+  .lp-why-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-contact-grid { grid-template-columns: 1fr; }
+  .lp-builds-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-shop-grid { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 600px) {
+  .lp-hero, .lp-services, .lp-why, .lp-contact { padding: 40px 20px; }
+  .lp-services-grid, .lp-why-grid { grid-template-columns: 1fr; }
+  .premium-nav .nav-links { display: none; }
+  .lp-builds-grid { grid-template-columns: 1fr; }
+  .lp-shop-grid { grid-template-columns: repeat(2, 1fr); }
+  .lp-reviews-inner { padding: 28px 20px; }
 }
